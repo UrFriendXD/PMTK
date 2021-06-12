@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PayloadAnimationController : MonoBehaviour
 {
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
     private Rigidbody2D _rb;
     private static readonly int MoveUp = Animator.StringToHash("MoveUp");
     private static readonly int MoveDown = Animator.StringToHash("MoveDown");
@@ -12,7 +12,6 @@ public class PayloadAnimationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
     }
 
