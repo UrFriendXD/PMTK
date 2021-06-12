@@ -1,22 +1,31 @@
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class PatternSpawner : MonoBehaviour
 {
     [SerializeField] private int inverseSpawnRate;
-    [SerializeField] private List<int> patternSceneBuildIndexes;
+    [SerializeField] private List<GameObject> patternPrefabs;
+
+    private GameManager gameManager;
 
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        
         InvokeRepeating(nameof(SpawnRandomPattern), 0, inverseSpawnRate);
     }
 
     private void SpawnRandomPattern()
     {
-        int randomSceneBuildIndex = patternSceneBuildIndexes[Random.Range(0, patternSceneBuildIndexes.Count)];
-        
-        SceneManager.LoadScene(randomSceneBuildIndex, LoadSceneMode.Additive);
+        GameObject randomPattern = patternPrefabs[Random.Range(0, patternPrefabs.Count)];
+
+        Vector2 position = new Vector2(
+            gameManager.ViewportRightSide,
+            0
+        );
+
+        Instantiate(randomPattern, position, quaternion.identity, transform);
     }
 }

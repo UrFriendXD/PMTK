@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5177422323706123046}
   - component: {fileID: 2327234569247201935}
   - component: {fileID: 7748037808002872882}
-  - component: {fileID: 5945483277871204580}
   m_Layer: 0
   m_Name: Pattern
   m_TagString: Untagged
@@ -67,18 +66,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5945483277871204580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5120568878968917843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea62cd9acabf5ba40b60f041c324081b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1471500068760719406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88,7 +75,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2369562478653126433, guid: 1c56491bdc727794e8614901c7af36c7, type: 3}
       propertyPath: m_Name
-      value: DestroySceneTrigger
+      value: DestroyPatternTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 2369562478653126435, guid: 1c56491bdc727794e8614901c7af36c7, type: 3}
       propertyPath: m_RootOrder
