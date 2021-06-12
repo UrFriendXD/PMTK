@@ -509,6 +509,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 905590968177349151, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
   m_PrefabInstance: {fileID: 662614819}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1061556810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 386186226, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+  m_PrefabInstance: {fileID: 5499690150588367070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc928fa11b0b454a841f00717ce174a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1216905804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPayload
       objectReference: {fileID: 0}
+    - target: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: _payloadAnimationController
+      value: 
+      objectReference: {fileID: 1061556810}
     - target: {fileID: 6349706836784411023, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: m_RootOrder
       value: 0

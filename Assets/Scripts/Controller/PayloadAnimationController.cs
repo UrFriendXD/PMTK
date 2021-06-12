@@ -8,6 +8,7 @@ public class PayloadAnimationController : MonoBehaviour
     private Rigidbody2D _rb;
     private static readonly int MoveUp = Animator.StringToHash("MoveUp");
     private static readonly int MoveDown = Animator.StringToHash("MoveDown");
+    private static readonly int Tethered = Animator.StringToHash("Tethered");
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +34,17 @@ public class PayloadAnimationController : MonoBehaviour
             _animator.SetBool(MoveDown, false);
             _animator.SetBool(MoveUp, false);
         }
+        _animator.SetFloat("Speed", _rb.velocity.x);
+    }
+
+    public void Connect()
+    {
+        _animator.SetBool(Tethered, true);
+        Debug.Log("CONNECT");
+    }
+
+    public void Disconnect()
+    {
+        _animator.SetBool(Tethered, false);
     }
 }
