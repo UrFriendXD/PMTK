@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PickupDestroyer : MonoBehaviour
+public class PatternDestroyer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {

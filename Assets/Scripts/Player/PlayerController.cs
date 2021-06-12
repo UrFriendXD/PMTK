@@ -35,6 +35,8 @@ namespace Player
         
         public float PayloadDistance => Vector2.Distance(payloadBody.position, rb.position);
 
+        private GameManager gameManager;
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -45,6 +47,8 @@ namespace Player
 
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             //Debug.Log(_playerAnimationController);
+
+            gameManager = FindObjectOfType<GameManager>();
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -107,6 +111,14 @@ namespace Player
             else
             {
                 payloadBody.AddForce(new Vector2(-GameManager.Instance.WindForce, 0f));
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("PlayerObstacle"))
+            {
+                gameManager.LoseLife();
             }
         }
     }
