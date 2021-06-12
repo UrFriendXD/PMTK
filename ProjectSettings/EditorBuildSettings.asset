@@ -8,16 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RopeTest.unity
     guid: a20407b2991a4f4eda9896745a004a95
-  - enabled: 1
-    path: Assets/Scenes/Patterns/Pattern 1.unity
-    guid: 519f9cdd6f3aa0b42951e9b16b897a41
-  - enabled: 1
-    path: Assets/Scenes/Patterns/Pattern 2.unity
-    guid: fc8ccf8b9c64b004cb02fddb8aa7b563
-  - enabled: 1
-    path: Assets/Scenes/Patterns/Pattern 3.unity
-    guid: 3e969746eb1d24b4d9f8ba2ce0c848f9
-  - enabled: 1
-    path: Assets/Scenes/Patterns/Pattern 4.unity
-    guid: 4c687042e70e12b4abbf4256d13b3ecf
   m_configObjects: {}
