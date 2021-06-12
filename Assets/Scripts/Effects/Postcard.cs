@@ -21,4 +21,12 @@ public class Postcard : MonoBehaviour
 
         imageRenderer.material.SetTexture(BaseMapId, texture);
     }
+
+    public void Destroy()
+    {
+        if (texture)
+            texture.Release();
+        
+        DestroyImmediate(gameObject);
+    }
 }
