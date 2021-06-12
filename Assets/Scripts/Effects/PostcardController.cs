@@ -24,7 +24,10 @@ public class PostcardController : MonoBehaviour
     public void Clear()
     {
         foreach (Postcard card in cards)
-            DestroyImmediate(card.gameObject);
+        {
+            if (card)
+                card.Destroy();
+        }
         
         cards.Clear();
     }
@@ -50,13 +53,16 @@ public class PostcardController : MonoBehaviour
 
     private void ClearLast()
     {
-        DestroyImmediate(cards[cards.Count - 1].gameObject);
-        cards.RemoveAt(cards.Count);
+        if (cards.Count == 0)
+            return;
+        
+        DestroyImmediate(cards[0].gameObject);
+        cards.RemoveAt(0);
     }
     
     private void Rasterise()
     {
-        if (cards.Count == 0)
+        if (cards.Count == 0 || cards[0] is null)
             return;
         
         cards[cards.Count - 1].Rasterise();

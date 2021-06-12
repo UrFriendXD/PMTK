@@ -10,6 +10,9 @@ public class Postcard : MonoBehaviour
 
     public void Rasterise()
     {
+        if (Application.isEditor && !Application.isPlaying)
+            return;
+        
         RenderTexture existing = (RenderTexture) imageRenderer.material.GetTexture(BaseMapId);
         texture = new RenderTexture(existing.width, existing.height, existing.depth);
         texture.Create();
@@ -17,5 +20,13 @@ public class Postcard : MonoBehaviour
         Graphics.Blit(existing, texture, posteriseMaterial);
 
         imageRenderer.material.SetTexture(BaseMapId, texture);
+    }
+
+    public void Destroy()
+    {
+        if (texture)
+            texture.Release();
+        
+        DestroyImmediate(gameObject);
     }
 }
