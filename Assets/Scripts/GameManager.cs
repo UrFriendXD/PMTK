@@ -1,12 +1,15 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Text scoreText;
+    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private int startLives;
     [SerializeField] private LivesUI livesUI;
+    [SerializeField] private PostcardController _postcardController;
 
     private int score;
     [SerializeField] private float windForce = 5f;
@@ -56,6 +59,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         ViewportRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)).x;
+    }
+
+    private void Start()
+    {
+        _postcardController.Spawn();
     }
 
     private void UpdateScoreUI()
