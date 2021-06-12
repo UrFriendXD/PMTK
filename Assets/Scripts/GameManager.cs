@@ -8,9 +8,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Text scoreText;
     [SerializeField] private int startLives;
-    [SerializeField] private GameObject lifeUIPrefab;
-    [SerializeField] private Transform lifeUIContainer;
-    
+    [SerializeField] private LivesUI livesUI;
+
     private int score;
     public int Score
     {
@@ -36,11 +35,9 @@ public class GameManager : MonoBehaviour
         set
         {
             lives = value;
-            UpdateLivesUI();
+            livesUI.UpdateLivesUI(lives);
         }
     }
-
-    private List<GameObject> lifeUIs = new List<GameObject>();
     
     void Start()
     {
@@ -51,20 +48,7 @@ public class GameManager : MonoBehaviour
     {
         scoreText.text = "Score: " + Score;
     }
-
-    private void UpdateLivesUI()
-    {
-        while (Lives > lifeUIs.Count)
-        {
-            AddLifeUI();
-        }
-        
-        while (Lives < lifeUIs.Count)
-        {
-            RemoveLifeUI();
-        }
-    }
-
+    
     public void LoseLife()
     {
         Debug.Log("Lose Life");
@@ -86,21 +70,5 @@ public class GameManager : MonoBehaviour
     {
         // TODO
         Debug.Log("Game Over");
-    }
-
-    private void AddLifeUI()
-    {
-        GameObject newLifeUI = Instantiate(lifeUIPrefab, lifeUIContainer);
-        
-        lifeUIs.Add(newLifeUI);
-    }
-
-    private void RemoveLifeUI()
-    {
-        GameObject lifeUI = lifeUIs.Last();
-
-        lifeUIs.Remove(lifeUI);
-        
-        Destroy(lifeUI);
     }
 }
