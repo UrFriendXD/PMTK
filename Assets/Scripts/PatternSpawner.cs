@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-public class PickupSpawner : MonoBehaviour
+public class PatternSpawner : MonoBehaviour
 {
     [SerializeField] private int inverseSpawnRate;
     [SerializeField] private List<int> patternSceneBuildIndexes;

@@ -559,7 +559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483571, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: m_Name
-      value: Pickup Spawner
+      value: Pattern Spawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
