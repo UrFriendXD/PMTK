@@ -72,7 +72,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5ce88525035242142b1a8d399996d3e2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 514e49ce9366b5b4fb4fd58074480a69, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 475e69b3c82f08547aa49eb004f2cdbb, type: 2}
+  m_Motion: {fileID: 7400000, guid: e62a3e63b040be947be233b244bf2952, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -136,7 +136,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player Animator Controller
+  m_Name: Cat Animator Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: MoveUp
@@ -185,7 +185,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: dd83eaeb60b882f4da2971db30b92050, type: 2}
+  m_Motion: {fileID: 7400000, guid: e62a3e63b040be947be233b244bf2952, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
