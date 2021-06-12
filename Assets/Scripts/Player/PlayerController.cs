@@ -2,12 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Controller
+namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 2f;
-        [SerializeField] private float payloadWindForce = 10f;
         [Header("Release")]
         [SerializeField] private float releaseForce = 40f;
         [SerializeField] private float releaseTime = 1.5f;
@@ -21,9 +20,14 @@ namespace Controller
         private float startDistance;
         private float currentReleaseTime;
 
-        private bool IsReleased => joint.connectedBody == null;
+        private PlayerAnimationController _playerAnimationController;
+        public bool IsReleased => joint.connectedBody == null;
 
-        private GameManager gameManager;
+        public float MoveValue => moveValue;
+
+        public Rigidbody2D PayloadBody => payloadBody;
+
+        public float StartDistance => startDistance;
 
         private void Awake()
         {
@@ -33,7 +37,8 @@ namespace Controller
 
             startDistance = joint.distance;
 
-            gameManager = FindObjectOfType<GameManager>();
+            _playerAnimationController = GetComponent<PlayerAnimationController>();
+            //Debug.Log(_playerAnimationController);
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -41,10 +46,16 @@ namespace Controller
             moveValue = context.ReadValue<float>();
 
             if (context.started)
+            {
                 hasMotorInput = true;
+                _playerAnimationController.UpdateMoveAnimation(moveValue);
+            }
 
             if (context.canceled)
+            {
                 hasMotorInput = false;
+                _playerAnimationController.UpdateMoveAnimation(0);
+            }
         }
 
         public void OnTether(InputAction.CallbackContext context)
@@ -88,15 +99,7 @@ namespace Controller
             }
             else
             {
-                payloadBody.AddForce(new Vector2(-payloadWindForce, 0f));
-            }
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("PlayerObstacle"))
-            {
-                gameManager.LoseLife();
+                payloadBody.AddForce(new Vector2(-GameManager.Instance.WindForce, 0f));
             }
         }
     }

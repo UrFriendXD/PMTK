@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LivesUI livesUI;
 
     private int score;
+    [SerializeField] private float windForce = 5f;
+
+    public static GameManager Instance { get; private set; }
+    
+    public float WindForce => windForce;
+
     public int Score
     {
         get
@@ -37,11 +44,18 @@ public class GameManager : MonoBehaviour
             lives = value;
             livesUI.UpdateLivesUI(lives);
         }
-    }
+    }    
     
-    void Start()
+    private void Awake()
     {
         Reset();
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void UpdateScoreUI()

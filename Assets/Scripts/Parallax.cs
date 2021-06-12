@@ -6,6 +6,7 @@ public class Parallax : MonoBehaviour
     public Camera cam;
     public float parallaxEffect;
     public float offset;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Parallax : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        transform.Translate(Vector3.left * speed);
         float temp = (cam.transform.position.x * (1 - parallaxEffect));
         float dist = (cam.transform.position.x * parallaxEffect);
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
