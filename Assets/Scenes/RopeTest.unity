@@ -171,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1025,16 +1025,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7639305265565861482, guid: d4a47dd37d329ec4b9f3ea3447f64cf1, type: 3}
     - target: {fileID: 5499690150978224846, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224846, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_LocalPosition.x

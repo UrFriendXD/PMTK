@@ -80,6 +80,7 @@ namespace Player
             {
                 Vector2 nextPos = rb.position;
                 nextPos.y += moveValue * moveSpeed * Time.fixedDeltaTime;
+                nextPos.y = Mathf.Clamp(nextPos.y, -7, 6);
                 rb.MovePosition(nextPos);
             }
 
