@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Text scoreText;
-    
+    [SerializeField] private float windForce = 5f;
+
     private int score;
+
+    public static GameManager Instance { get; private set; }
+    
+    public float WindForce => windForce;
+
     public int Score
     {
         get
@@ -20,8 +27,19 @@ public class GameManager : MonoBehaviour
             UpdateScoreUI();
         }
     }
-    
-    void Start()
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
     {
         Score = 0;
     }

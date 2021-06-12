@@ -7,7 +7,6 @@ namespace Controller
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 2f;
-        [SerializeField] private float payloadWindForce = 10f;
         [Header("Release")]
         [SerializeField] private float releaseForce = 40f;
         [SerializeField] private float releaseTime = 1.5f;
@@ -20,14 +19,22 @@ namespace Controller
         private float moveValue;
         private float startDistance;
         private float currentReleaseTime;
+        private LineRenderer lineRenderer;
 
         private bool IsReleased => joint.connectedBody == null;
+
+        public float MoveValue => moveValue;
+
+        public Rigidbody2D PayloadBody => payloadBody;
+
+        public float StartDistance => startDistance;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             joint = GetComponent<DistanceJoint2D>();
             payloadBody = joint.connectedBody.GetComponent<Rigidbody2D>();
+            lineRenderer = GetComponent<LineRenderer>();
 
             startDistance = joint.distance;
         }
@@ -84,7 +91,7 @@ namespace Controller
             }
             else
             {
-                payloadBody.AddForce(new Vector2(-payloadWindForce, 0f));
+                payloadBody.AddForce(new Vector2(-GameManager.Instance.WindForce, 0f));
             }
         }
     }
