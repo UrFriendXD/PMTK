@@ -23,6 +23,8 @@ namespace Controller
 
         private bool IsReleased => joint.connectedBody == null;
 
+        private GameManager gameManager;
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -30,6 +32,8 @@ namespace Controller
             payloadBody = joint.connectedBody.GetComponent<Rigidbody2D>();
 
             startDistance = joint.distance;
+
+            gameManager = FindObjectOfType<GameManager>();
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -85,6 +89,14 @@ namespace Controller
             else
             {
                 payloadBody.AddForce(new Vector2(-payloadWindForce, 0f));
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("PlayerObstacle"))
+            {
+                gameManager.LoseLife();
             }
         }
     }
