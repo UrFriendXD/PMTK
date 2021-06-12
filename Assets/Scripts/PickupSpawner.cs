@@ -10,7 +10,7 @@ public class PickupSpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating(nameof(SpawnRandomPattern), inverseSpawnRate, inverseSpawnRate);
+        InvokeRepeating(nameof(SpawnRandomPattern), 0, inverseSpawnRate);
     }
 
     private void SpawnRandomPattern()
