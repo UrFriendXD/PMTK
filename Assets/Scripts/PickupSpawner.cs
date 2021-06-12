@@ -16,9 +16,6 @@ public class PickupSpawner : MonoBehaviour
     {
         // InvokeRepeating(nameof(SpawnPickup), inverseSpawnRate, inverseSpawnRate);
         InvokeRepeating(nameof(SpawnRandomPattern), inverseSpawnRate, inverseSpawnRate);
-        
-        // test load a scene
-        // SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
     
 
@@ -35,7 +32,11 @@ public class PickupSpawner : MonoBehaviour
     private void SpawnRandomPattern()
     {
         int randomSceneBuildIndex = patternSceneBuildIndexes[Random.Range(0, patternSceneBuildIndexes.Count)];
-
+        
         SceneManager.LoadScene(randomSceneBuildIndex, LoadSceneMode.Additive);
+        
+        // SceneManager.MergeScenes(SceneManager.GetSceneAt(1), SceneManager.GetActiveScene());
+        //
+        // // SceneManager.MergeScenes(patternScenes[Random.Range(0, patternScenes.Count)], SceneManager.GetActiveScene());
     }
 }
