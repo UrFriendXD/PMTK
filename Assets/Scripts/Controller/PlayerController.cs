@@ -6,33 +6,35 @@ namespace Controller
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("Hinge stuff")]
-        [SerializeField] private float hingePower = 50f;
-        [SerializeField] private float returnGravity = 0.1f;
-        [SerializeField] private float decceleration = 0.1f;
+        [SerializeField] private float moveSpeed = 2f;
+        [SerializeField] private float payloadWindForce = 10f;
+        [Header("Release")]
+        [SerializeField] private float releaseForce = 40f;
+        [SerializeField] private float releaseTime = 1.5f;
+        [SerializeField] private float releaseWindForce = 10f;
         
         private Rigidbody2D rb;
-        private HingeJoint2D hinge;
+        private DistanceJoint2D joint;
         private Rigidbody2D payloadBody;
-        private float currentMotor;
         private bool hasMotorInput;
-        private Vector2 startHingePos;
-        private float startDistance;
         private float moveValue;
+        private float startDistance;
+        private float currentReleaseTime;
+
+        private bool IsReleased => joint.connectedBody == null;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            hinge = GetComponent<HingeJoint2D>();
-            payloadBody = hinge.connectedBody.GetComponent<Rigidbody2D>();
+            joint = GetComponent<DistanceJoint2D>();
+            payloadBody = joint.connectedBody.GetComponent<Rigidbody2D>();
 
-            startHingePos = payloadBody.position;
-            startDistance = Vector2.Distance(startHingePos, rb.position);
+            startDistance = joint.distance;
         }
 
         public void OnMove(InputAction.CallbackContext context)
         {
-            moveValue = -context.ReadValue<float>();
+            moveValue = context.ReadValue<float>();
 
             if (context.started)
                 hasMotorInput = true;
@@ -45,9 +47,15 @@ namespace Controller
         {
             if (context.started)
             {
-                if (hinge.connectedBody)
+                if (joint.connectedBody)
                 {
-                    hinge.connectedBody = null;
+                    joint.connectedBody = null;
+                }
+                else
+                {
+                    joint.connectedBody = payloadBody;
+                    joint.distance = startDistance;
+                    currentReleaseTime = 0f;
                 }
             }
         }
@@ -56,36 +64,28 @@ namespace Controller
         {
             if (hasMotorInput)
             {
-                currentMotor += moveValue * hingePower;
-            }
-            
-            if (false && !hasMotorInput)
-            {
-                // float predictedDistance = hinge.jointSpeed * Time.fixedDeltaTime;
-                // float leftAngle = hinge.jointAngle;
-                // float leftDistance = Mathf.Tan(leftAngle) * startDistance;
-                //
-                // float gravity = (leftDistance - predictedDistance) * returnGravity;
-                // currentMotor += gravity / Time.fixedDeltaTime;
-                // Debug.Log($"current motor {currentMotor} gravity {gravity / Time.fixedDeltaTime}");
-                
-                float predictedNextDistance = hinge.jointSpeed * Time.fixedDeltaTime;
-                float predictedNextAngle = Mathf.Atan(predictedNextDistance / startDistance);
-                float leftAngle = hinge.jointAngle;
-                float leftDistance = Mathf.Tan(leftAngle) * startDistance;
-
-                float gravity = -Mathf.Lerp(leftAngle, 0, 0.001f);
-                currentMotor += gravity;
-                Debug.Log($"current motor {currentMotor} gravity {gravity}");
+                Vector2 nextPos = rb.position;
+                nextPos.y += moveValue * moveSpeed * Time.fixedDeltaTime;
+                rb.MovePosition(nextPos);
             }
 
-            hinge.motor = new JointMotor2D()
+            if (IsReleased)
             {
-                motorSpeed = currentMotor * Time.fixedDeltaTime,
-                maxMotorTorque = float.MaxValue
-            };
+                if (currentReleaseTime < releaseTime)
+                {
+                    payloadBody.AddForce(new Vector2(releaseForce, 0f));
+                }
+                else
+                {
+                    payloadBody.AddForce(new Vector2(-releaseWindForce, 0f));
+                }
 
-            currentMotor = Mathf.Lerp(currentMotor, 0, decceleration);
+                currentReleaseTime += Time.fixedDeltaTime;
+            }
+            else
+            {
+                payloadBody.AddForce(new Vector2(-payloadWindForce, 0f));
+            }
         }
     }
 }
