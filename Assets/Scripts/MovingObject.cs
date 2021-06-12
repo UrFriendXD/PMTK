@@ -10,6 +10,6 @@ public class MovingObject : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gameManager = FindObjectOfType<GameManager>();
     
-        rb.velocity = Vector2.left * gameManager.WindForce;
+        rb.velocity = Vector2.left * gameManager.WindForce * Time.deltaTime;
     }
 }
