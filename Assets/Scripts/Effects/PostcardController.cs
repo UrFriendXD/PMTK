@@ -5,6 +5,7 @@ public class PostcardController : MonoBehaviour
 {
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private Transform cardParent;
+    [SerializeField] private int maxCards;
     [SerializeField] private Vector2 positionVariance;
     [SerializeField] private float rotationVariance;
 
@@ -30,6 +31,9 @@ public class PostcardController : MonoBehaviour
     
     private void Create()
     {
+        if (cards.Count >= maxCards)
+            ClearLast();
+        
         foreach (Postcard previous in cards)
             previous.transform.Translate(Vector3.forward, Space.Self);
         
@@ -42,6 +46,12 @@ public class PostcardController : MonoBehaviour
         card.transform.localRotation = rotation;
         
         cards.Add(card);
+    }
+
+    private void ClearLast()
+    {
+        DestroyImmediate(cards[cards.Count - 1].gameObject);
+        cards.RemoveAt(cards.Count);
     }
     
     private void Rasterise()
