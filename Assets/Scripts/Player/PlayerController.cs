@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Controller
+namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
@@ -19,9 +19,8 @@ namespace Controller
         private float moveValue;
         private float startDistance;
         private float currentReleaseTime;
-        private LineRenderer lineRenderer;
 
-        private bool IsReleased => joint.connectedBody == null;
+        public bool IsReleased => joint.connectedBody == null;
 
         public float MoveValue => moveValue;
 
@@ -34,7 +33,6 @@ namespace Controller
             rb = GetComponent<Rigidbody2D>();
             joint = GetComponent<DistanceJoint2D>();
             payloadBody = joint.connectedBody.GetComponent<Rigidbody2D>();
-            lineRenderer = GetComponent<LineRenderer>();
 
             startDistance = joint.distance;
         }
