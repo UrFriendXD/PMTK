@@ -554,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6349706836784411023, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6349706836784411023, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -718,6 +718,34 @@ PrefabInstance:
     - target: {fileID: 905590968177349151, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: maxCards
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: cards.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: positionVariance.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: positionVariance.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: cards.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: cards.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: cards.Array.data[2]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 905590968177349156, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
       propertyPath: m_Name

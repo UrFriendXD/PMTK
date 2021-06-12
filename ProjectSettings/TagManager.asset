@@ -7,7 +7,7 @@ TagManager:
   - Payload
   - DestroySceneTrigger
   - PlayerObstacle
-  - CatObstacle
+  - PayloadObstacle
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,9 @@ public class Postcard : MonoBehaviour
 
     public void Rasterise()
     {
+        if (Application.isEditor && !Application.isPlaying)
+            return;
+        
         RenderTexture existing = (RenderTexture) imageRenderer.material.GetTexture(BaseMapId);
         texture = new RenderTexture(existing.width, existing.height, existing.depth);
         texture.Create();
