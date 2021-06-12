@@ -1012,9 +1012,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5499690150978224846, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_Size.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224846, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_Size.y
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224846, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7639305265565861482, guid: d4a47dd37d329ec4b9f3ea3447f64cf1, type: 3}
+    - target: {fileID: 5499690150978224846, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_LocalPosition.x

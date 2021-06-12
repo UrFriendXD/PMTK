@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 14b9562d830cb7741874f5b4fbd533c2
+guid: e4d973df18b4a2341a8b36ca98bc6c72
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1388373087013863493
-    second: witch_idle_up_0
+      213: 1217400072600822701
+    second: witch_idle_down_0
   - first:
-      213: 1530180934342561133
-    second: witch_idle_up_1
+      213: 4298620609653019281
+    second: witch_idle_down_1
   - first:
-      213: 6224156306792284580
-    second: witch_idle_up_2
+      213: 2327087781091239086
+    second: witch_idle_down_2
   - first:
-      213: 7848596469566762589
-    second: witch_idle_up_3
+      213: -5951613541144962535
+    second: witch_idle_down_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch_idle_up_0
+      name: witch_idle_down_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5408c2b77fd744310800000000000000
-      internalID: 1388373087013863493
+      spriteID: da328ec7ae215e010800000000000000
+      internalID: 1217400072600822701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_idle_up_1
+      name: witch_idle_down_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6d4099d37b4c3510800000000000000
-      internalID: 1530180934342561133
+      spriteID: 1929a8e5ba4c7ab30800000000000000
+      internalID: 4298620609653019281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_idle_up_2
+      name: witch_idle_down_2
       rect:
         serializedVersion: 2
         x: 0
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a18cdc1f25a06650800000000000000
-      internalID: 6224156306792284580
+      spriteID: ea46819e10a7b4020800000000000000
+      internalID: 2327087781091239086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_idle_up_3
+      name: witch_idle_down_3
       rect:
         serializedVersion: 2
         x: 1024
@@ -192,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5e69e9c7e0dbec60800000000000000
-      internalID: 7848596469566762589
+      spriteID: 91a56af640f976da0800000000000000
+      internalID: -5951613541144962535
       vertices: []
       indices: 
       edges: []
