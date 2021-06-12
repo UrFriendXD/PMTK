@@ -20,6 +20,7 @@ namespace Player
         private float startDistance;
         private float currentReleaseTime;
 
+        private PlayerAnimationController _playerAnimationController;
         public bool IsReleased => joint.connectedBody == null;
 
         public float MoveValue => moveValue;
@@ -35,6 +36,8 @@ namespace Player
             payloadBody = joint.connectedBody.GetComponent<Rigidbody2D>();
 
             startDistance = joint.distance;
+
+            _playerAnimationController = GetComponent<PlayerAnimationController>();
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -42,10 +45,16 @@ namespace Player
             moveValue = context.ReadValue<float>();
 
             if (context.started)
+            {
                 hasMotorInput = true;
+                _playerAnimationController.UpdateMoveAnimation(moveValue);
+            }
 
             if (context.canceled)
+            {
                 hasMotorInput = false;
+                _playerAnimationController.UpdateMoveAnimation(0);
+            }
         }
 
         public void OnTether(InputAction.CallbackContext context)
