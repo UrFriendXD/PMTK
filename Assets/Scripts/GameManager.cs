@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float windForce = 5f;
 
     public static GameManager Instance { get; private set; }
+
+    public float ViewportRightSide { get; private set; }
     
     public float WindForce => windForce;
 
@@ -51,6 +53,8 @@ public class GameManager : MonoBehaviour
         
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        ViewportRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)).x;
     }
 
     private void UpdateScoreUI()
