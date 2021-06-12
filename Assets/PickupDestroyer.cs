@@ -7,7 +7,6 @@ public class PickupDestroyer : MonoBehaviour
     {
         if (other.CompareTag("DestroySceneTrigger"))
         {
-            Debug.Log("yes");
             SceneManager.UnloadSceneAsync(other.gameObject.scene);
         }
         else
