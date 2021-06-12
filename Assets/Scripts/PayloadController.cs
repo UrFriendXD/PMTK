@@ -11,7 +11,7 @@ public class PayloadController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("CatObstacle"))
+        if (other.CompareTag("PayloadObstacle"))
         {
             gameManager.LoseLife();
         }
