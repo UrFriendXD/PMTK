@@ -1083,30 +1083,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPayload
       objectReference: {fileID: 0}
-    - target: {fileID: 1785340490656600316, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785340490656600316, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785340490656600316, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785340491591879724, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785340491591879724, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785340491591879724, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6349706836784411023, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: m_RootOrder
       value: 0
