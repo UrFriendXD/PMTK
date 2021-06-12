@@ -1,13 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PatternDestroyer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("DestroySceneTrigger"))
+        if (other.CompareTag("DestroyPatternTrigger"))
         {
-            SceneManager.UnloadSceneAsync(other.gameObject.scene);
+            Destroy(other.transform.parent.gameObject);
         }
         else
         {
