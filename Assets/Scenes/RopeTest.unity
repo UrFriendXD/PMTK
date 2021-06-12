@@ -513,6 +513,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: inverseSpawnRate
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483533, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -559,7 +563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483571, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: m_Name
-      value: Pickup Spawner
+      value: Pattern Spawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
@@ -775,7 +779,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2888289433959517914, guid: 3f4250b19ed303341a354f2d47b916c4, type: 3}
       propertyPath: m_Name
-      value: Pickup Destroyer
+      value: Pattern Destroyer
       objectReference: {fileID: 0}
     - target: {fileID: 2888289433959517919, guid: 3f4250b19ed303341a354f2d47b916c4, type: 3}
       propertyPath: m_RootOrder

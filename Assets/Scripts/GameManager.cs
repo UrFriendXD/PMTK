@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float windForce = 5f;
 
     public static GameManager Instance { get; private set; }
+
+    public float ViewportRightSide { get; private set; }
     
     public float WindForce => windForce;
 
@@ -32,7 +30,6 @@ public class GameManager : MonoBehaviour
     }
 
     private int lives;
-
     public int Lives
     {
         get
@@ -56,6 +53,8 @@ public class GameManager : MonoBehaviour
         
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        ViewportRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)).x;
     }
 
     private void UpdateScoreUI()
