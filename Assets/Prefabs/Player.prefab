@@ -124,7 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5.5
-  releaseForce: 3
+  releaseVelocityMultiplier: 1.3
+  releaseForce: 2
   releaseTime: 1.2
   releaseWindForce: 4
   catchDistance: 7

@@ -7,7 +7,8 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 2f;
-        [Header("Release")]
+        [Header("Release")] 
+        [SerializeField] private float releaseVelocityMultiplier = 1f;
         [SerializeField] private float releaseForce = 40f;
         [SerializeField] private float releaseTime = 1.5f;
         [SerializeField] private float releaseWindForce = 10f;
@@ -75,6 +76,7 @@ namespace Player
                 if (!IsReleased)
                 {
                     joint.connectedBody = null;
+                    payloadBody.velocity *= releaseVelocityMultiplier;
                 }
                 else if (PayloadDistance < catchDistance)
                 {
