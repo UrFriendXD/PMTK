@@ -11,6 +11,8 @@ namespace Player
         [SerializeField] private float releaseForce = 40f;
         [SerializeField] private float releaseTime = 1.5f;
         [SerializeField] private float releaseWindForce = 10f;
+        [Header("Catch")] 
+        [SerializeField] private float catchDistance = Mathf.Infinity;
         
         private Rigidbody2D rb;
         private DistanceJoint2D joint;
@@ -28,6 +30,10 @@ namespace Player
         public Rigidbody2D PayloadBody => payloadBody;
 
         public float StartDistance => startDistance;
+
+        public Vector2 PayloadVector => payloadBody.position - rb.position;
+        
+        public float PayloadDistance => Vector2.Distance(payloadBody.position, rb.position);
 
         private void Awake()
         {
@@ -61,11 +67,11 @@ namespace Player
         {
             if (context.started)
             {
-                if (joint.connectedBody)
+                if (!IsReleased)
                 {
                     joint.connectedBody = null;
                 }
-                else
+                else if (PayloadDistance < catchDistance)
                 {
                     joint.connectedBody = payloadBody;
                     joint.distance = startDistance;
