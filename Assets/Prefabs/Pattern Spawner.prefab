@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupPrefab: {fileID: 5374527719543811202, guid: 4a503c52d9feea5488b0665e44ef46fa, type: 3}
   spawnAreaHeight: 10
-  inverseSpawnRate: 1
+  inverseSpawnRate: 8
   patternSceneBuildIndexes: 0100000002000000

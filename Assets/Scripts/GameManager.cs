@@ -1,17 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Text scoreText;
-    [SerializeField] private float windForce = 5f;
+    [SerializeField] private int startLives;
+    [SerializeField] private LivesUI livesUI;
 
     private int score;
+    [SerializeField] private float windForce = 5f;
 
     public static GameManager Instance { get; private set; }
+
+    public float ViewportRightSide { get; private set; }
     
     public float WindForce => windForce;
 
@@ -28,8 +29,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private int lives;
+    public int Lives
+    {
+        get
+        {
+            return lives;
+        }
+        set
+        {
+            lives = value;
+            livesUI.UpdateLivesUI(lives);
+        }
+    }    
+    
     private void Awake()
     {
+        Reset();
         if (Instance != null)
         {
             Destroy(this);
@@ -37,15 +53,35 @@ public class GameManager : MonoBehaviour
         
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
 
-    private void Start()
-    {
-        Score = 0;
+        ViewportRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)).x;
     }
 
     private void UpdateScoreUI()
     {
         scoreText.text = "Score: " + Score;
+    }
+    
+    public void LoseLife()
+    {
+        Debug.Log("Lose Life");
+        Lives--;
+
+        if (Lives == 0)
+        {
+            GameOver();
+        }
+    }
+
+    private void Reset()
+    {
+        Score = 0;
+        Lives = startLives;
+    }
+
+    private void GameOver()
+    {
+        // TODO
+        Debug.Log("Game Over");
     }
 }
