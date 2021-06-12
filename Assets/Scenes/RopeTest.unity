@@ -222,6 +222,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &390939155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2683142533176551015, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+  m_PrefabInstance: {fileID: 2683142533465744500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b7b6f503a820a0587a1ae8aa9251cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1216905804
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +461,58 @@ PrefabInstance:
     - target: {fileID: 2683142533176551013, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: 015cea64-1570-4e9d-972a-0a0605d81886
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: Player/Tether[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 390939155}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTether
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Controller.PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551014, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551015, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: hingePower
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551015, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: decceleration
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683142533176551015, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: returnGravity
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2683142533176551033, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_Name
