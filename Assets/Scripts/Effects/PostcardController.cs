@@ -25,10 +25,8 @@ public class PostcardController : MonoBehaviour
     {
         foreach (Postcard card in cards)
         {
-            if (card is null)
-                continue;
-            
-            DestroyImmediate(card.gameObject);
+            if (card)
+                card.Destroy();
         }
         
         cards.Clear();

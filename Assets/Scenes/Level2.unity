@@ -515,39 +515,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: inverseSpawnRate
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: patternPrefabs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: patternPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1439542233141754312, guid: 6117bb8f68d7f544eaee5ff062357f4f, type: 3}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: patternPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 7124589905661464451, guid: a599dd7e73d6f5145b2babac79027db0, type: 3}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: patternPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 5302211139411290292, guid: d9e303c84effb7a41978eb94344c93f0, type: 3}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: patternPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 6820469215285203157, guid: f7e46d35b90630045bb59a4a1a1c2c26, type: 3}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.data[0]
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.data[1]
-      value: 4
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternSceneBuildIndexes.Array.data[2]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternSceneBuildIndexes.Array.data[3]
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483533, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: m_RootOrder

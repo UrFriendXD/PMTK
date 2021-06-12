@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Payload
-  - DestroySceneTrigger
   - PlayerObstacle
   - PayloadObstacle
+  - DestroyPatternTrigger
+  - DestroySceneTrigger
   layers:
   - Default
   - TransparentFX
