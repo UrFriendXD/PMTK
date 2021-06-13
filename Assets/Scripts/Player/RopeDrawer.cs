@@ -1,10 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Player
 {
     public class RopeDrawer : MonoBehaviour
     {
+        [SerializeField] private List<Joint2D> hinges = new List<Joint2D>();
+        
         private LineRenderer lineRenderer;
         private PlayerController playerController;
 
@@ -22,12 +26,13 @@ namespace Player
             }
             else
             {
-                lineRenderer.positionCount = 2;
+                lineRenderer.positionCount = hinges.Count + 2;
 
-                Vector3[] positions = {
-                    transform.position,
-                    playerController.PayloadBody.position
-                };
+                Vector3[] positions = hinges
+                    .Select(h => h.transform.position)
+                    .Prepend(transform.position)
+                    .Append(playerController.PayloadBody.position)
+                    .ToArray();
                 
                 lineRenderer.SetPositions(positions);
             }

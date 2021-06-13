@@ -7,24 +7,27 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 2f;
+        [SerializeField] private Rigidbody2D payloadBody;
+        [SerializeField] private float windForce;
+        [SerializeField] private DistanceJoint2D payloadJoint;
         [Header("Release")] 
         [SerializeField] private float releaseVelocityMultiplier = 1f;
-        [SerializeField] private float releaseForce = 40f;
+        [SerializeField] private float releaseForceUpdate = 40f;
+        [SerializeField] private float releaseImpulseForce = 0f;
         [SerializeField] private float releaseTime = 1.5f;
         [SerializeField] private float releaseWindForce = 10f;
         [Header("Catch")] 
         [SerializeField] private float catchDistance = Mathf.Infinity;
         
         private Rigidbody2D rb;
-        private DistanceJoint2D joint;
-        private Rigidbody2D payloadBody;
         private bool hasMotorInput;
         private float moveValue;
         private float startDistance;
         private float currentReleaseTime;
+        private float payloadJointStartDistance;
 
         private PlayerAnimationController _playerAnimationController;
-        public bool IsReleased => joint.connectedBody == null;
+        public bool IsReleased => payloadJoint.connectedBody == null;
 
         public float MoveValue => moveValue;
 
@@ -36,20 +39,15 @@ namespace Player
         
         public float PayloadDistance => Vector2.Distance(payloadBody.position, rb.position);
 
-        private GameManager gameManager;
-
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            joint = GetComponent<DistanceJoint2D>();
-            payloadBody = joint.connectedBody.GetComponent<Rigidbody2D>();
 
-            startDistance = joint.distance;
+            startDistance = PayloadDistance;
+            payloadJointStartDistance = payloadJoint.distance;
 
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             //Debug.Log(_playerAnimationController);
-
-            gameManager = FindObjectOfType<GameManager>();
         }
 
         public void OnMove(InputAction.CallbackContext context)
@@ -75,13 +73,14 @@ namespace Player
             {
                 if (!IsReleased)
                 {
-                    joint.connectedBody = null;
+                    payloadJoint.connectedBody = null;
                     payloadBody.velocity *= releaseVelocityMultiplier;
+                    payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
                 }
                 else if (PayloadDistance < catchDistance)
                 {
-                    joint.connectedBody = payloadBody;
-                    joint.distance = startDistance;
+                    payloadJoint.connectedBody = payloadBody;
+                    payloadJoint.distance = payloadJointStartDistance;
                     currentReleaseTime = 0f;
                 }
             }
@@ -101,7 +100,7 @@ namespace Player
             {
                 if (currentReleaseTime < releaseTime)
                 {
-                    payloadBody.AddForce(new Vector2(releaseForce, 0f));
+                    payloadBody.AddForce(new Vector2(releaseForceUpdate, 0f));
                 }
                 else
                 {
@@ -112,7 +111,7 @@ namespace Player
             }
             else
             {
-                payloadBody.AddForce(new Vector2(-GameManager.Instance.WindForce, 0f));
+                payloadBody.AddForce(new Vector2(-windForce, 0f));
             }
         }
 
@@ -120,7 +119,7 @@ namespace Player
         {
             if (other.CompareTag("PlayerObstacle"))
             {
-                gameManager.LoseLife();
+                GameManager.Instance.LoseLife();
             }
         }
     }
