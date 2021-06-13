@@ -106,7 +106,6 @@ namespace Player
                     currentReleaseCooldown = releaseCooldown;
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
-                    _playerAnimationController.Fling();
                 }
                 // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
@@ -121,6 +120,7 @@ namespace Player
         {
             StartCoroutine(proceduralRope.DoDelayedClearJoints(ropeDelay, Vector2.right * ropeReleaseImpulseForce));
             _payloadAnimationController.Disconnect();
+            _playerAnimationController.Fling();
             IsPartiallyReleased = true;
         }
 
@@ -130,6 +130,7 @@ namespace Player
             currentReleaseTime = 0f;
             proceduralRope.GenerateJoints();
             _payloadAnimationController.Connect();
+            _playerAnimationController.Catch();
             IsPartiallyReleased = false;
         }
 
@@ -138,7 +139,13 @@ namespace Player
             transform.position = Vector3.zero;
             proceduralRope.ClearJoints();
             payloadBody.position = Vector2.left * startPayloadDistance;
+            _playerAnimationController.Respawn();
             JoinPayload();
+        }
+
+        public void Death()
+        {
+            _playerAnimationController.OnDeath();
         }
 
         public void OnRestart(InputAction.CallbackContext context)

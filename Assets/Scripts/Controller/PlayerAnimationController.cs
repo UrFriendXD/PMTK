@@ -39,4 +39,18 @@ public class PlayerAnimationController : MonoBehaviour
     {
         _animator.SetTrigger(Fling1);
     }
+
+    public void Catch()
+    {
+        _animator.SetTrigger("Catch");
+    }
+
+    public void OnDeath()
+    {
+        _animator.SetTrigger("Died");
+    }
+    public void Respawn()
+    {
+        _animator.SetTrigger("Respawn");
+    }
 }

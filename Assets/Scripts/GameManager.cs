@@ -105,11 +105,11 @@ public class GameManager : MonoBehaviour
         // TODO have a timer for animations and raterise 
         Debug.Log("Game Over");
         // Reset();
-        PlayerController.Instance.Respawn();
         PatternSpawner.Instance.Reset();
         // SceneManager.LoadScene(0);
 
         cardController.Rasterise();
+        playerController.Death();
 
         GameActive = false;
     }
@@ -141,6 +141,7 @@ public class GameManager : MonoBehaviour
         cardController.Top.ShowUI(UIController.UIType.Game);
         // TODO: Start the game (reset score, start obstacle spawning?)
         GameActive = true;
+        PlayerController.Instance.Respawn();
 
         Reset();
     }
