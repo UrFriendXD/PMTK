@@ -7,6 +7,14 @@ using Random = UnityEngine.Random;
 
 public class PatternSpawner : MonoBehaviour
 {
+    [Serializable]
+    private struct PatternSegment
+    {
+        public GameObject prefab;
+        public float startTimeFrame;
+        public float endTimeFrame;
+    }
+    
     [SerializeField] private float TimeBetweenSpawnMax;
     [SerializeField] private float TimeBetweenSpawnMin;
     [SerializeField] private float timeBetweenSpawnIncreaseInterval = 1f;
@@ -14,6 +22,7 @@ public class PatternSpawner : MonoBehaviour
     [SerializeField] private float timeBetweenSpawnIncreaseMax = Mathf.Infinity;
     [SerializeField] private float startDelay = 3f;
     [SerializeField] private List<GameObject> patternPrefabs;
+    [SerializeField] private List<PatternSegment> patternSegments; 
 
     private GameManager gameManager;
     private float timer = 0;
@@ -22,6 +31,7 @@ public class PatternSpawner : MonoBehaviour
     private float startTimeBetweenSpawnMax;
     private float startTimeBetweenSpawnMin;
     private float totalIncrease;
+    private float timeFrame;
     
     public HashSet<GameObject> SpawnedPatternObjects { get; } = new HashSet<GameObject>();
     
@@ -44,6 +54,7 @@ public class PatternSpawner : MonoBehaviour
         TimeBetweenSpawnMin = startTimeBetweenSpawnMin;
         TimeBetweenSpawnMax = startTimeBetweenSpawnMax;
         totalIncrease = 0;
+        timeFrame = 0;
 
         foreach (GameObject go in SpawnedPatternObjects)
         {
@@ -73,20 +84,38 @@ public class PatternSpawner : MonoBehaviour
         }
 
         startTimer += Time.deltaTime;
+        timeFrame += Time.deltaTime;
         currentIncreaseInterval += Time.deltaTime;
     }
 
     private void SpawnRandomPattern()
     {
-        GameObject randomPattern = patternPrefabs[Random.Range(0, patternPrefabs.Count)];
+        GameObject patternObject = null;
+        HashSet<int> visited = new HashSet<int>();
 
-        Vector2 position = new Vector2(
-            gameManager.ViewportRightSide * 3,
-            0
-        );
+        do
+        {
+            int index = Random.Range(0, patternPrefabs.Count);
+            var segment = patternSegments[index];
+            visited.Add(index);
+            
+            if (segment.startTimeFrame >= timeFrame && segment.endTimeFrame <= timeFrame)
+            {
+                patternObject = segment.prefab;
+                break;
+            }
+        } while (visited.Count < patternSegments.Count);
 
-        GameObject go = Instantiate(randomPattern, position, quaternion.identity, transform);
-        SpawnedPatternObjects.Add(go);
+        if (patternObject != null)
+        {
+            Vector2 position = new Vector2(
+                gameManager.ViewportRightSide * 3,
+                0
+            );
+
+            GameObject go = Instantiate(patternObject, position, quaternion.identity, transform);
+            SpawnedPatternObjects.Add(go);
+        }
     }
 
     public void RemoveSpawnPatternObject(GameObject go)
