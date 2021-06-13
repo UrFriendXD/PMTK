@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Timers;
 using Player;
 using TMPro;
@@ -120,11 +121,17 @@ public class GameManager : MonoBehaviour
             PatternSpawner.Instance.Reset();
             // SceneManager.LoadScene(0);
 
-            cardController.Rasterise();
+            StartCoroutine(Rasterise());
             playerController.Death();
             _audioSource.PlayOneShot(CameraShutter);
             GameActive = false;
         }
+    }
+
+    private IEnumerator Rasterise()
+    {
+        yield return new WaitForSeconds(0.5f);
+        cardController.Rasterise();
     }
 
     private void Start()
