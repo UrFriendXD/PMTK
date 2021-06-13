@@ -59,6 +59,7 @@ public class PatternSpawner : MonoBehaviour
         totalIncrease = 0;
         timeFrame = 0;
         lastIndex = -1;
+    }
 
     public void ClearObjects()
     {
