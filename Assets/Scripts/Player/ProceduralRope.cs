@@ -9,6 +9,9 @@ namespace Player
     {
         [SerializeField] private float jointMass = 0.2f;
         [SerializeField] private int jointCount = 8;
+        [SerializeField] private bool shouldHaveCollider = true;
+        [SerializeField] private float jointWidth = 0.3f;
+        [SerializeField] private PhysicsMaterial2D jointPhysicsMaterial;
 
         private LineRenderer lineRenderer;
         private PlayerController playerController;
@@ -58,16 +61,24 @@ namespace Player
             {
                 float segmentDistance = distancePerSegment * i;
                 Vector2 segmentPosition = (Vector2) transform.position + (direction * segmentDistance);
+                Vector2 offset = -direction * distancePerSegment / 2f;
 
                 GameObject jointObject = new GameObject($"Rope Joint - Segment {i}");
                 jointObject.transform.SetParent(transform.parent);
-                jointObject.transform.position = segmentPosition;
+                jointObject.transform.position = segmentPosition + offset;
                 
                 var jointBody = jointObject.AddComponent<Rigidbody2D>();
                 jointBody.mass = jointMass;
-                
+                jointBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+                jointBody.interpolation = RigidbodyInterpolation2D.Interpolate;
+                jointBody.sharedMaterial = jointPhysicsMaterial;
+                ApplyCollider(jointBody, direction);
+
                 var joint = jointObject.AddComponent<DistanceJoint2D>();
                 lastJoint.connectedBody = jointBody;
+                joint.breakForce = 1200;
+                joint.anchor = -offset;
+                joint.connectedAnchor = offset;
                 SetSegmentJointDistance(lastJoint);
                 
                 lastJoint = joint;
@@ -75,6 +86,8 @@ namespace Player
             }
             
             lastJoint.connectedBody = playerController.PayloadBody;
+            playerController.PayloadBody.sharedMaterial = jointPhysicsMaterial;
+            //ApplyCollider(lastJoint.gameObject, direction);
             SetSegmentJointDistance(lastJoint);
         }
 
@@ -87,6 +100,20 @@ namespace Player
             
             rootJoint.connectedBody = null;
             joints.Clear();
+        }
+
+        private void ApplyCollider(Rigidbody2D body, Vector2 direction)
+        {
+            if (!shouldHaveCollider) return;
+
+            GameObject go = body.gameObject;
+            go.layer = 7;
+            var jointCollider = go.AddComponent<BoxCollider2D>();
+            // Vector2 colliderCenter = go.transform
+            //     .InverseTransformVector(-direction * distancePerSegment / 2f);
+            // jointCollider.offset = colliderCenter;
+            jointCollider.size = new Vector2(distancePerSegment * 2, jointWidth);
+            //body.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
         private void SetSegmentJointDistance(Joint2D joint)

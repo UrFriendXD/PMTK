@@ -274,6 +274,10 @@ PrefabInstance:
       propertyPath: hinges.Array.data[6]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: jointPhysicsMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: 6cb3d3236036c854cab3a80fb3d8c994, type: 2}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: moveSpeed
       value: 8

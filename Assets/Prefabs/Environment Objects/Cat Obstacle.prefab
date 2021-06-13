@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3177035202141020189}
   - component: {fileID: 3177035202141020193}
   - component: {fileID: 3177035202141020194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cat Obstacle
   m_TagString: PayloadObstacle
   m_Icon: {fileID: 0}
