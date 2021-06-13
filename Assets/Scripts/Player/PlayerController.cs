@@ -14,6 +14,8 @@ namespace Player
         [SerializeField] private float releaseWindForce = 10f;
         [Header("Catch")] 
         [SerializeField] private float catchDistance = Mathf.Infinity;
+
+        [SerializeField] private PayloadAnimationController _payloadAnimationController;
         
         private Rigidbody2D rb;
         private DistanceJoint2D joint;
@@ -77,12 +79,14 @@ namespace Player
                 {
                     joint.connectedBody = null;
                     payloadBody.velocity *= releaseVelocityMultiplier;
+                    _payloadAnimationController.Disconnect();
                 }
                 else if (PayloadDistance < catchDistance)
                 {
                     joint.connectedBody = payloadBody;
                     joint.distance = startDistance;
                     currentReleaseTime = 0f;
+                    _payloadAnimationController.Connect();
                 }
             }
         }
