@@ -95,15 +95,15 @@ public class PatternSpawner : MonoBehaviour
 
         do
         {
-            int index = Random.Range(0, patternPrefabs.Count);
+            int index = Random.Range(0, patternSegments.Count);
             var segment = patternSegments[index];
-            visited.Add(index);
-            
-            if (segment.startTimeFrame >= timeFrame && segment.endTimeFrame <= timeFrame)
+
+            if (!visited.Contains(index) && timeFrame >= segment.startTimeFrame && timeFrame <= segment.endTimeFrame)
             {
                 patternObject = segment.prefab;
                 break;
             }
+            visited.Add(index);
         } while (visited.Count < patternSegments.Count);
 
         if (patternObject != null)
