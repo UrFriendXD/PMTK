@@ -68,6 +68,7 @@ public class UIController : MonoBehaviour
 
     public void OnButtonPressed()
     {
+        OnButtonExit();
         GameManager.Instance.OnBeginPlay();
     }
 
