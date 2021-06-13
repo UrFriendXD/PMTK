@@ -10,6 +10,8 @@ namespace Player
         [SerializeField] private Rigidbody2D payloadBody;
         [SerializeField] private float windForce;
         [Header("Release")] 
+        [SerializeField] private float ropeReleaseImpulseForce;
+        [SerializeField] private float ropeDelay = 0.2f;
         [SerializeField] private float releaseCooldown = 0.2f;
         [SerializeField] private float releaseVelocityMultiplier = 1f;
         [SerializeField] private float releaseForceUpdate = 40f;
@@ -108,7 +110,7 @@ namespace Player
         /// Logic for detaching payload
         private void UnJoinPayload()
         {
-            proceduralRope.ClearJoints();
+            StartCoroutine(proceduralRope.DoDelayedClearJoints(ropeDelay, Vector2.right * ropeReleaseImpulseForce));
             _payloadAnimationController.Disconnect();
 
         }
