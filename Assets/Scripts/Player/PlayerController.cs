@@ -91,6 +91,14 @@ namespace Player
             }
         }
 
+        public void OnRestart(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                GameManager.Instance.RestartGame();
+            }
+        }
+
         private void FixedUpdate()
         {
             if (hasMotorInput)
