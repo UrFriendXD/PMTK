@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Controller;
@@ -9,6 +10,7 @@ namespace Player
     public class ProceduralRope : MonoBehaviour
     {
         [SerializeField] private float jointMass = 0.2f;
+        [SerializeField] private float endJointReleaseMass = 0.5f;
         [SerializeField] private int jointCount = 8;
         [SerializeField] private bool shouldHaveCollider = true;
         [SerializeField] private float jointWidth = 0.3f;
@@ -20,6 +22,7 @@ namespace Player
         private LineRenderer lineRenderer;
         private PlayerController playerController;
         private DistanceJoint2D rootJoint;
+        private Joint2D endJoint;
         private float distancePerSegment;
         private List<Joint2D> joints = new List<Joint2D>();
 
@@ -47,15 +50,19 @@ namespace Player
             }
             else
             {
-                lineRenderer.positionCount = joints.Count + 2;
+                lineRenderer.positionCount = joints.Count + 1;
 
-                Vector3[] positions = joints
+                if (endJoint)
+                    lineRenderer.positionCount++;
+
+                var positions = joints
                     .Select(h => h.transform.position)
-                    .Prepend(transform.position + (Vector3)rootJoint.anchor)
-                    .Append(playerController.PayloadBody.position)
-                    .ToArray();
+                    .Prepend(transform.position + (Vector3) rootJoint.anchor);
+
+                if (endJoint)
+                    positions = positions.Append(playerController.PayloadBody.position);
                 
-                lineRenderer.SetPositions(positions);
+                lineRenderer.SetPositions(positions.ToArray());
             }
         }
 
@@ -98,6 +105,7 @@ namespace Player
             }
             
             lastJoint.connectedBody = playerController.PayloadBody;
+            endJoint = lastJoint;
             playerController.PayloadBody.sharedMaterial = jointPhysicsMaterial;
             //ApplyCollider(lastJoint.gameObject, direction);
             SetSegmentJointDistance(lastJoint);
@@ -105,6 +113,17 @@ namespace Player
 
         private void OnRopeBreak()
         {
+            ClearJoints();
+        }
+        
+        public IEnumerator DoDelayedClearJoints(float delay, Vector2 impulseForce)
+        {
+            endJoint.attachedRigidbody.mass = endJointReleaseMass;
+            endJoint.attachedRigidbody.AddForce(impulseForce, ForceMode2D.Impulse);
+            endJoint.connectedBody = null;
+            joints.Remove(endJoint);
+            Destroy(endJoint);
+            yield return new WaitForSeconds(delay);
             ClearJoints();
         }
 

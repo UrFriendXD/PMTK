@@ -10,6 +10,9 @@ namespace Player
         [SerializeField] private Rigidbody2D payloadBody;
         [SerializeField] private float windForce;
         [Header("Release")] 
+        [SerializeField] private float ropeReleaseImpulseForce;
+        [SerializeField] private float ropeDelay = 0.2f;
+        [SerializeField] private float releaseCooldown = 0.2f;
         [SerializeField] private float releaseVelocityMultiplier = 1f;
         [SerializeField] private float releaseForceUpdate = 40f;
         [SerializeField] private float releaseImpulseForce = 0f;
@@ -24,10 +27,11 @@ namespace Player
         private Rigidbody2D rb;
         private bool hasMotorInput;
         private float moveValue;
-        private float startDistance;
+        private float startPayloadDistance;
         private float currentReleaseTime;
         private ProceduralRope proceduralRope;
         private DistanceJoint2D mainJoint;
+        private float currentReleaseCooldown;
 
         private PlayerAnimationController _playerAnimationController;
         
@@ -37,19 +41,27 @@ namespace Player
 
         public Rigidbody2D PayloadBody => payloadBody;
 
-        public float StartDistance => startDistance;
+        public float StartPayloadDistance => startPayloadDistance;
 
         public Vector2 PayloadVector => payloadBody.position - rb.position;
         
         public float PayloadDistance => Vector2.Distance(payloadBody.position, rb.position);
 
         public Rigidbody2D AttachedRigidbody => rb;
+        
+        public static PlayerController Instance { get; private set; }
 
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Debug.LogError("Multiple instances of player!");
+            }
+            
+            Instance = this;
             rb = GetComponent<Rigidbody2D>();
 
-            startDistance = PayloadDistance;
+            startPayloadDistance = PayloadDistance;
 
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             proceduralRope = GetComponent<ProceduralRope>();
@@ -79,22 +91,44 @@ namespace Player
             if (context.started)
             {
                 // When payload is still attached and we're about to release
-                if (!IsReleased)
+                if (!IsReleased && currentReleaseCooldown <= 0)
                 {
-                    proceduralRope.ClearJoints();
+                    UnJoinPayload();
+                    currentReleaseCooldown = releaseCooldown;
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
                     _playerAnimationController.Fling();
-                    _payloadAnimationController.Disconnect();
                 }
                 // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
                 {
-                    currentReleaseTime = 0f;
-                    proceduralRope.GenerateJoints();
-                    _payloadAnimationController.Connect();
+                    JoinPayload();
                 }
             }
+        }
+
+        /// Logic for detaching payload
+        private void UnJoinPayload()
+        {
+            StartCoroutine(proceduralRope.DoDelayedClearJoints(ropeDelay, Vector2.right * ropeReleaseImpulseForce));
+            _payloadAnimationController.Disconnect();
+
+        }
+
+        /// Logic for joining payload
+        private void JoinPayload()
+        {
+            currentReleaseTime = 0f;
+            proceduralRope.GenerateJoints();
+            _payloadAnimationController.Connect();
+        }
+
+        public void Respawn()
+        {
+            transform.position = Vector3.zero;
+            proceduralRope.ClearJoints();
+            payloadBody.position = Vector2.left * startPayloadDistance;
+            JoinPayload();
         }
 
         public void OnRestart(InputAction.CallbackContext context)
@@ -132,6 +166,8 @@ namespace Player
             {
                 payloadBody.AddForce(new Vector2(-windForce, 0f));
             }
+
+            currentReleaseCooldown = Mathf.Max(0, currentReleaseCooldown - Time.fixedDeltaTime);
         }
 
         private void Update()
