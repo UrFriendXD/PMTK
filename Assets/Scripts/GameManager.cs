@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float currentWindForce;
 
+    [SerializeField] private float connectedScorePerSecond;
+    [SerializeField] private float disconnectedScorePerSecond;
+    [SerializeField] private float addScoreOnDisconnect;
+
     public static GameManager Instance { get; private set; }
 
     public float ViewportRightSide { get; private set; }
@@ -164,14 +168,18 @@ public class GameManager : MonoBehaviour
             {
                 currentWindForce += windForceAcceleration * Time.deltaTime;
             }
-
-            timer += Time.deltaTime;
-
-            // Bonus score for being disconnected
+            
             if (playerController.IsReleased)
-                timer += Time.deltaTime;
+                timer += Time.deltaTime * disconnectedScorePerSecond;
+            else 
+                timer += Time.deltaTime * connectedScorePerSecond;
 
             Score = timer;
         }
+    }
+
+    public void OnRelease()
+    {
+        timer += addScoreOnDisconnect;
     }
 }
