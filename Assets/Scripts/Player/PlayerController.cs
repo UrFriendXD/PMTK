@@ -79,6 +79,7 @@ namespace Player
                 {
                     joint.connectedBody = null;
                     payloadBody.velocity *= releaseVelocityMultiplier;
+                    _playerAnimationController.Fling();
                     _payloadAnimationController.Disconnect();
                 }
                 else if (PayloadDistance < catchDistance)
