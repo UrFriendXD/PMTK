@@ -62,3 +62,37 @@ MonoBehaviour:
   - {fileID: 883623204493920154, guid: d598d6ae56a83f743b31ad19c1b35179, type: 3}
   - {fileID: 883623204493920154, guid: 403391ec270bd974e9e2f0267840fa9a, type: 3}
   - {fileID: 883623204493920154, guid: 50b561d6d12bc854cbda39a259c60e96, type: 3}
+  patternSegments:
+  - prefab: {fileID: 883623204493920154, guid: e0dad14086771204788c789ff70a9d2c, type: 3}
+    startTimeFrame: 0
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: 50b561d6d12bc854cbda39a259c60e96, type: 3}
+    startTimeFrame: 0
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: 403391ec270bd974e9e2f0267840fa9a, type: 3}
+    startTimeFrame: 0
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: d598d6ae56a83f743b31ad19c1b35179, type: 3}
+    startTimeFrame: 0
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: ad79433b6f4bef141b1daa232683f81f, type: 3}
+    startTimeFrame: 0
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: 4e639818031c7af478ec14eb874f0948, type: 3}
+    startTimeFrame: 0
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: 4b68ab1aa4ac3d44aab026c0bf533063, type: 3}
+    startTimeFrame: 0
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: 1ab9f9a142107b7a09ce09a1be7b5c30, type: 3}
+    startTimeFrame: 5
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: 47b31f24f6415b345a83ca5471a255e5, type: 3}
+    startTimeFrame: 14
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: b8a88b64a6bde3345b8a7615cde3dd29, type: 3}
+    startTimeFrame: 20
+    endTimeFrame: 1e+15
+  - prefab: {fileID: 883623204493920154, guid: b8a88b64a6bde3345b8a7615cde3dd29, type: 3}
+    startTimeFrame: 21
+    endTimeFrame: 1e+15

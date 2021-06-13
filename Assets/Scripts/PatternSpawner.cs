@@ -37,6 +37,8 @@ public class PatternSpawner : MonoBehaviour
     
     public static PatternSpawner Instance { get; private set; }
 
+    private int lastIndex;
+
     void Start()
     {
         Instance = this;
@@ -45,6 +47,7 @@ public class PatternSpawner : MonoBehaviour
 
         startTimeBetweenSpawnMin = TimeBetweenSpawnMin;
         startTimeBetweenSpawnMax = TimeBetweenSpawnMax;
+        lastIndex = -1;
     }
 
     public void Reset()
@@ -55,6 +58,7 @@ public class PatternSpawner : MonoBehaviour
         TimeBetweenSpawnMax = startTimeBetweenSpawnMax;
         totalIncrease = 0;
         timeFrame = 0;
+        lastIndex = -1;
 
         foreach (GameObject go in SpawnedPatternObjects)
         {
@@ -98,9 +102,10 @@ public class PatternSpawner : MonoBehaviour
             int index = Random.Range(0, patternSegments.Count);
             var segment = patternSegments[index];
 
-            if (!visited.Contains(index) && timeFrame >= segment.startTimeFrame && timeFrame <= segment.endTimeFrame)
+            if (index != lastIndex && !visited.Contains(index) && timeFrame >= segment.startTimeFrame && timeFrame <= segment.endTimeFrame)
             {
                 patternObject = segment.prefab;
+                lastIndex = index;
                 break;
             }
             visited.Add(index);
