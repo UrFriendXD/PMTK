@@ -195,6 +195,9 @@ namespace Player
                 catchIndicator.Show();
             else
                 catchIndicator.Hide();
+
+            if (!GameManager.Instance.GameActive)
+                hasMotorInput = false;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
