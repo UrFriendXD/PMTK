@@ -9,6 +9,9 @@ public class PlayerAnimationController : MonoBehaviour
     private static readonly int MoveDown = Animator.StringToHash("MoveDown");
     private static readonly int Fling1 = Animator.StringToHash("Fling");
 
+    [SerializeField] private PayloadAnimationController payload;
+    private static readonly int CatSpeed = Animator.StringToHash("CatSpeed");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +36,14 @@ public class PlayerAnimationController : MonoBehaviour
             _animator.SetBool(MoveDown, false);
             _animator.SetBool(MoveUp, false);
         }
+        _animator.SetFloat(CatSpeed, payload._rb.velocity.x);
     }
 
     public void Fling()
     {
         _animator.SetTrigger(Fling1);
+
+        Debug.Log(payload._rb.velocity.x);
     }
 
     public void Catch()

@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 432554957}
+  _rb: {fileID: 0}
 --- !u!61 &8334487677384651064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -357,6 +358,10 @@ PrefabInstance:
       propertyPath: jointPhysicsMaterial
       value: 
       objectReference: {fileID: 6200000, guid: 6cb3d3236036c854cab3a80fb3d8c994, type: 2}
+    - target: {fileID: 4867362020054949291, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: payload
+      value: 
+      objectReference: {fileID: 386186226}
     - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 3

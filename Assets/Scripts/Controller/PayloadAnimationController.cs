@@ -5,7 +5,7 @@ using UnityEngine;
 public class PayloadAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    private Rigidbody2D _rb;
+    public Rigidbody2D _rb;
     private static readonly int MoveUp = Animator.StringToHash("MoveUp");
     private static readonly int MoveDown = Animator.StringToHash("MoveDown");
     private static readonly int Tethered = Animator.StringToHash("Tethered");
