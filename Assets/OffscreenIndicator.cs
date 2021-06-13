@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 public class OffscreenIndicator : MonoBehaviour
@@ -9,6 +10,7 @@ public class OffscreenIndicator : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Transform target;
     [SerializeField] private float padding;
+    [SerializeField] private PlayerController playerController;
     
     private OffscreenType offscreenType = OffscreenType.OnScreen;
     private static readonly int IsLeft = Animator.StringToHash("IsLeft");
@@ -60,7 +62,7 @@ public class OffscreenIndicator : MonoBehaviour
 
     private void ToggleIndicator()
     {
-        if (offscreenType == OffscreenType.OnScreen)
+        if (offscreenType == OffscreenType.OnScreen || !playerController.IsReleased)
         {
             spriteRenderer.enabled = false;
         }
