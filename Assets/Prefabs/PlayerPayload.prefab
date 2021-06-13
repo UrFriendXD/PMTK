@@ -287,6 +287,14 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: shouldBreak
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: ropeBreakForce
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: hinges.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -452,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224848, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_Distance
-      value: 1
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224848, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_ConnectedRigidBody

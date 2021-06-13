@@ -14,7 +14,7 @@ namespace Player
         [SerializeField] private float jointWidth = 0.3f;
         [SerializeField] private PhysicsMaterial2D jointPhysicsMaterial;
         [Header("Break")]
-        [SerializeField] private bool shouldBreak;
+        [SerializeField] private bool shouldBreak = true;
         [SerializeField] private float ropeBreakForce = 1100;
 
         private LineRenderer lineRenderer;
