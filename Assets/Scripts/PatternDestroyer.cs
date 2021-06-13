@@ -8,9 +8,14 @@ public class PatternDestroyer : MonoBehaviour
         {
             Destroy(other.transform.parent.gameObject);
         }
-        else if (!other.CompareTag("Payload"))
+        else if (other.CompareTag("Payload"))
+        {
+            GameManager.Instance.RestartGame();
+        }
+        else
         {
             Destroy(other.gameObject);
-        }   
+
+        }
     }
 }

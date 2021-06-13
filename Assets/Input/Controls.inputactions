@@ -81,7 +81,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KBM",
                     "action": "Tether",
                     "isComposite": false,
                     "isPartOfComposite": false
