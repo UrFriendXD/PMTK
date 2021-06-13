@@ -46,5 +46,6 @@ public class PayloadAnimationController : MonoBehaviour
     public void Disconnect()
     {
         _animator.SetBool(Tethered, false);
+        _animator.SetTrigger("Fling");
     }
 }
