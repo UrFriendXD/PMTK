@@ -93,13 +93,11 @@ namespace Player
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
                     _playerAnimationController.Fling();
-                    _payloadAnimationController.Disconnect();
                 }
                 // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
                 {
                     JoinPayload();
-                    _payloadAnimationController.Connect();
                 }
             }
         }
@@ -108,6 +106,8 @@ namespace Player
         private void UnJoinPayload()
         {
             proceduralRope.ClearJoints();
+            _payloadAnimationController.Disconnect();
+
         }
 
         /// Logic for joining payload
@@ -115,6 +115,7 @@ namespace Player
         {
             currentReleaseTime = 0f;
             proceduralRope.GenerateJoints();
+            _payloadAnimationController.Connect();
         }
 
         public void Respawn()

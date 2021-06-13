@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cat_Trans_Down
+  m_Name: Cat_Trans_Roll
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 171cfb5a2273aed4c823f1af6f9a0e48, type: 3}
+      value: {fileID: 21300000, guid: eb5da576bb0f951478e2b5e6446a7438, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +40,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 171cfb5a2273aed4c823f1af6f9a0e48, type: 3}
+    - {fileID: 21300000, guid: eb5da576bb0f951478e2b5e6446a7438, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
