@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float disconnectedScorePerSecond;
     [SerializeField] private float addScoreOnDisconnect;
 
+    [SerializeField] private AudioClip CameraShutter;
+    [SerializeField] private AudioClip PostCard;
+
+    private AudioSource _audioSource;
+
     public static GameManager Instance { get; private set; }
 
     public float ViewportRightSide { get; private set; }
@@ -74,6 +79,7 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         //DontDestroyOnLoad(gameObject);
+        _audioSource = GetComponent<AudioSource>();
 
         ViewportRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)).x;
     }
@@ -117,7 +123,7 @@ public class GameManager : MonoBehaviour
 
             StartCoroutine(Rasterise());
             playerController.Death();
-
+            _audioSource.PlayOneShot(CameraShutter);
             GameActive = false;
         }
     }
@@ -156,6 +162,7 @@ public class GameManager : MonoBehaviour
         // TODO: Start the game (reset score, start obstacle spawning?)
         GameActive = true;
         PlayerController.Instance.Respawn();
+        _audioSource.PlayOneShot(PostCard);
 
         Reset();
     }
@@ -163,11 +170,6 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(0);
-    }
-
-    private void RestartGameAfterLoad(Scene scene, LoadSceneMode mode)
-    {
-        cardController.Spawn();
     }
 
     private void Update()

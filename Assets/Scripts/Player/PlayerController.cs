@@ -56,6 +56,8 @@ namespace Player
         
         public static PlayerController Instance { get; private set; }
 
+        private PlayerAudioController _playerAudioController;
+
         private void Awake()
         {
             if (Instance != null)
@@ -69,6 +71,7 @@ namespace Player
             startPayloadDistance = PayloadDistance;
 
             _playerAnimationController = GetComponent<PlayerAnimationController>();
+            _playerAudioController = GetComponent<PlayerAudioController>();
             proceduralRope = GetComponent<ProceduralRope>();
             mainJoint = GetComponent<DistanceJoint2D>();
             //Debug.Log(_playerAnimationController);
@@ -107,11 +110,13 @@ namespace Player
                     currentReleaseCooldown = releaseCooldown;
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
+                    _playerAudioController.OnThrow();
                     gameManager.OnRelease();
                 }
                 // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
                 {
+                    _playerAudioController.OnCatch();
                     JoinPayload();
                 }
             }
@@ -142,11 +147,13 @@ namespace Player
             proceduralRope.ClearJoints();
             payloadBody.position = Vector2.left * startPayloadDistance;
             _playerAnimationController.Respawn();
+            _playerAudioController.OnRespawn();
             JoinPayload();
         }
 
         public void Death()
         {
+            _playerAudioController.OnDeath();
             _playerAnimationController.OnDeath();
         }
 
