@@ -10,6 +10,7 @@ namespace Player
         [SerializeField] private Rigidbody2D payloadBody;
         [SerializeField] private float windForce;
         [Header("Release")] 
+        [SerializeField] private float releaseCooldown = 0.2f;
         [SerializeField] private float releaseVelocityMultiplier = 1f;
         [SerializeField] private float releaseForceUpdate = 40f;
         [SerializeField] private float releaseImpulseForce = 0f;
@@ -28,6 +29,7 @@ namespace Player
         private float currentReleaseTime;
         private ProceduralRope proceduralRope;
         private DistanceJoint2D mainJoint;
+        private float currentReleaseCooldown;
 
         private PlayerAnimationController _playerAnimationController;
         
@@ -87,9 +89,10 @@ namespace Player
             if (context.started)
             {
                 // When payload is still attached and we're about to release
-                if (!IsReleased)
+                if (!IsReleased && currentReleaseCooldown <= 0)
                 {
                     UnJoinPayload();
+                    currentReleaseCooldown = releaseCooldown;
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
                     _playerAnimationController.Fling();
@@ -161,6 +164,8 @@ namespace Player
             {
                 payloadBody.AddForce(new Vector2(-windForce, 0f));
             }
+
+            currentReleaseCooldown = Mathf.Max(0, currentReleaseCooldown - Time.fixedDeltaTime);
         }
 
         private void Update()
