@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905590968177349156}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44,7 +44,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.51267993, g: 0.40156642, b: 0.6037736, a: 0}
+  m_BackGroundColor: {r: 0.39215687, g: 0.21568628, b: 0.29411766, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 815772723548064738, guid: dace98fb38649264b8a7300cf66bc973, type: 3}
   cardParent: {fileID: 905590969619180160}
-  maxCards: 5
-  positionVariance: {x: 2, y: 0.5}
+  maxCards: 3
+  positionVariance: {x: 1, y: 0.25}
   rotationVariance: 3
   cards: []
 --- !u!1 &905590969619180161

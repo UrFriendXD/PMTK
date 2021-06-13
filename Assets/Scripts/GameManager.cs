@@ -1,4 +1,5 @@
 using System;
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public float ViewportRightSide { get; private set; }
 
     public float WindForce => windForce;
+
+    public bool GameActive;
 
     public int Score
     {
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         ViewportRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)).x;
     }
@@ -72,12 +75,13 @@ public class GameManager : MonoBehaviour
     public void LoseLife()
     {
         Debug.Log("Lose Life");
-        Lives--;
+        //Lives--;
 
-        if (Lives == 0)
+        GameOver();
+        /*if (Lives == 0)
         {
             GameOver();
-        }
+        }*/
     }
 
     private void Reset()
@@ -89,12 +93,16 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Game Over")]
     private void GameOver()
     {
-        // TODO
+        // TODO have a timer for animations and raterise 
         Debug.Log("Game Over");
         Reset();
+        PlayerController.Instance.Respawn();
+        PatternSpawner.Instance.Reset();
         // SceneManager.LoadScene(0);
 
         cardController.Rasterise();
+
+        GameActive = false;
     }
 
     private void Start()
@@ -123,6 +131,7 @@ public class GameManager : MonoBehaviour
         cardController.Spawn();
         cardController.Top.ShowUI(UIController.UIType.Game);
         // TODO: Start the game (reset score, start obstacle spawning?)
+        GameActive = true;
 
         Reset();
     }

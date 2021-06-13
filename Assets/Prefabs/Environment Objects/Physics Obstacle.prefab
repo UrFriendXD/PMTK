@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8499056312960652870}
   - component: {fileID: 7075237695214218161}
   - component: {fileID: 5314220479035108466}
+  - component: {fileID: 1547562829440474293}
   m_Layer: 8
   m_Name: Physics Obstacle
   m_TagString: PayloadObstacle
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8499056312960652920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: c47809db9ab7eb744b4ebd1268b0fead, type: 3}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
+  m_Sprite: {fileID: -8266830000775039517, guid: fe0f05ab02ae316428d3efbd965c624f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,7 +122,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.18
 --- !u!114 &5314220479035108466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +135,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc97ac44a6184ae49e5fa771c6226a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1547562829440474293
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8499056312960652920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3aaa19e6ebd8bbf4991b09010e099795, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

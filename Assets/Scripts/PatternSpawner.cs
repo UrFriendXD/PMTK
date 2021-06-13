@@ -1,20 +1,56 @@
+using System;
 using System.Collections.Generic;
+using System.Timers;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PatternSpawner : MonoBehaviour
 {
-    [SerializeField] private int inverseSpawnRate;
+    [SerializeField] private int TimeBetweenSpawn;
+    [SerializeField] private float startDelay = 3f;
     [SerializeField] private List<GameObject> patternPrefabs;
 
     private GameManager gameManager;
+    private float timer = 0;
+    private float startTimer;
+    
+    public HashSet<GameObject> SpawnedPatternObjects { get; } = new HashSet<GameObject>();
+    
+    public static PatternSpawner Instance { get; private set; }
 
     void Start()
     {
+        Instance = this;
         gameManager = FindObjectOfType<GameManager>();
-        
-        InvokeRepeating(nameof(SpawnRandomPattern), 0, inverseSpawnRate);
+        timer = TimeBetweenSpawn;
+    }
+
+    public void Reset()
+    {
+        startTimer = 0;
+        timer = 0;
+
+        foreach (GameObject go in SpawnedPatternObjects)
+        {
+            Destroy(go);
+        }
+    }
+
+    private void Update()
+    {
+        if (gameManager.GameActive && startTimer > startDelay)
+        {
+            if (timer <= 0)
+            {
+                SpawnRandomPattern();
+                timer = TimeBetweenSpawn;
+            }
+
+            timer -= Time.deltaTime;
+        }
+
+        startTimer += Time.deltaTime;
     }
 
     private void SpawnRandomPattern()
@@ -26,6 +62,12 @@ public class PatternSpawner : MonoBehaviour
             0
         );
 
-        Instantiate(randomPattern, position, quaternion.identity, transform);
+        GameObject go = Instantiate(randomPattern, position, quaternion.identity, transform);
+        SpawnedPatternObjects.Add(go);
+    }
+
+    public void RemoveSpawnPatternObject(GameObject go)
+    {
+        SpawnedPatternObjects.Remove(go);
     }
 }

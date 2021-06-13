@@ -6,16 +6,17 @@ public class PatternDestroyer : MonoBehaviour
     {
         if (other.CompareTag("DestroyPatternTrigger"))
         {
-            Destroy(other.transform.parent.gameObject);
+            GameObject go = other.transform.parent.gameObject;
+            PatternSpawner.Instance.RemoveSpawnPatternObject(go);
+            Destroy(go);
         }
         else if (other.CompareTag("Payload"))
         {
-            GameManager.Instance.RestartGame();
+            GameManager.Instance.LoseLife();
         }
         else
         {
             Destroy(other.gameObject);
-
         }
     }
 }

@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24d0916ee2212d04a97ca71c104a2d58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &236302912
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,8 +220,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97a64c55f6db6fe4e8965608608c3772, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   camera: {fileID: 0}
   amount: 0.3
   duration: 0.5
@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
@@ -313,8 +313,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
@@ -345,15 +345,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: scoreText
-      value: 
+      value:
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: cardController
-      value: 
+      value:
       objectReference: {fileID: 28421517}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: _postcardController
-      value: 
+      value:
       objectReference: {fileID: 28421517}
     - target: {fileID: 2270056700349869994, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: m_RootOrder
@@ -436,28 +436,10 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &433186043
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 433186044}
-  - component: {fileID: 433186045}
-  m_Layer: 0
-  m_Name: Title Card
-  m_TagString: Title Card
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &433186044
+--- !u!4 &433186044 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+  m_PrefabInstance: {fileID: 4653669130843537767}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433186043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -924,56 +906,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349152, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349152, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.29411766
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349152, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.21568628
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349152, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.39215687
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: maxCards
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: cards.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: positionVariance.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: positionVariance.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: cards.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: cards.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
-      propertyPath: cards.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 905590968177349156, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
       propertyPath: m_Name
       value: Postcard Camera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+--- !u!1001 &4653669130843537767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1187308641}
+    m_Modifications:
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653669130739688860, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+      propertyPath: m_Name
+      value: Title Card
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
 --- !u!1001 &7493922819854802556
 PrefabInstance:
   m_ObjectHideFlags: 0
