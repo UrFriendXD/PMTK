@@ -431,11 +431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: releaseImpulseForce
-      value: 80
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: releaseVelocityMultiplier
-      value: 1.5
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: _payloadAnimationController
@@ -559,13 +559,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
---- !u!1 &1785340491591879728 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5499690150978224851, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
-  m_PrefabInstance: {fileID: 6094529981892857571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1785340491591879724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+  m_PrefabInstance: {fileID: 6094529981892857571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1785340491591879728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5499690150978224851, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
   m_PrefabInstance: {fileID: 6094529981892857571}
   m_PrefabAsset: {fileID: 0}

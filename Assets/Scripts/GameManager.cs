@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         Reset();
         PlayerController.Instance.Respawn();
+        PatternSpawner.Instance.Reset();
         // SceneManager.LoadScene(0);
 
         cardController.Rasterise();
