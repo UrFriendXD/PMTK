@@ -9,11 +9,11 @@ public class PayloadController : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PayloadObstacle"))
-        {
-            gameManager.LoseLife();
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("PayloadObstacle"))
+    //     {
+    //         gameManager.LoseLife();
+    //     }
+    // }
 }
