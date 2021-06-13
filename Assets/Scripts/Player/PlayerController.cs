@@ -35,6 +35,8 @@ namespace Player
         private float currentReleaseCooldown;
 
         private PlayerAnimationController _playerAnimationController;
+
+        private Vector3 startPosition;
         
         public bool IsReleased => mainJoint.connectedBody == null;
 
@@ -74,6 +76,7 @@ namespace Player
             _playerAudioController = GetComponent<PlayerAudioController>();
             proceduralRope = GetComponent<ProceduralRope>();
             mainJoint = GetComponent<DistanceJoint2D>();
+            startPosition = transform.position;
             //Debug.Log(_playerAnimationController);
         }
 
@@ -143,7 +146,7 @@ namespace Player
 
         public void Respawn()
         {
-            transform.position = Vector3.zero;
+            transform.position = startPosition;
             proceduralRope.ClearJoints();
             payloadBody.position = Vector2.left * startPayloadDistance;
             _playerAnimationController.Respawn();
