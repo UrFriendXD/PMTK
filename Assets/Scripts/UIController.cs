@@ -19,9 +19,11 @@ public class UIController : MonoBehaviour
         Game
     }
 
+    public bool Enabled => playButton.enabled && playButton.gameObject.activeInHierarchy;
+
     private void Update()
     {
-        if (!playButton.enabled || !playButton.gameObject.activeInHierarchy)
+        if (!Enabled)
             return;
         
         if (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
@@ -74,7 +76,7 @@ public class UIController : MonoBehaviour
 
     public void OnButtonHover()
     {
-        if (!playButton.enabled || !playButton.gameObject.activeInHierarchy)
+        if (!Enabled)
             return;
         
         TextMeshProUGUI text = playButton.GetComponentInChildren<TextMeshProUGUI>();
