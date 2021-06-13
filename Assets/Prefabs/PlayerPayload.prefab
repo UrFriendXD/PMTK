@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 432554955}
-  - component: {fileID: 432554956}
   - component: {fileID: 432554957}
+  - component: {fileID: 1785340490656600317}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -32,42 +32,25 @@ Transform:
   m_Father: {fileID: 1785340490656600316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1785340490656600195
-GameObject:
+--- !u!95 &432554957
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1785340490656600316}
-  - component: {fileID: 1785340490656600317}
-  - component: {fileID: 1785340490656600194}
-  - component: {fileID: 946538258239716658}
-  - component: {fileID: 386186225}
-  - component: {fileID: 386186226}
-  - component: {fileID: 8334487677384651064}
-  m_Layer: 0
-  m_Name: Payload
-  m_TagString: Payload
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1785340490656600316
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785340490656600195}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: 0, z: 5}
-  m_LocalScale: {x: 3, y: 3, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6349706836784411023}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 432554954}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed77978401999c54a9345cd965f8665e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1785340490656600317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,25 +102,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &432554957
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432554954}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed77978401999c54a9345cd965f8665e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1192388925611630369
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +318,22 @@ PrefabInstance:
       propertyPath: jointPhysicsMaterial
       value: 
       objectReference: {fileID: 6200000, guid: 6cb3d3236036c854cab3a80fb3d8c994, type: 2}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 015cea64-1570-4e9d-972a-0a0605d81886
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Player/Tether[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTether
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Controller.PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: moveSpeed
       value: 8
@@ -384,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: releaseWindForce
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: releaseForceUpdate
@@ -392,12 +372,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: releaseImpulseForce
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: releaseVelocityMultiplier
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: _payloadAnimationController
+      value: 
+      objectReference: {fileID: 386186226}
     - target: {fileID: 5499690150978224846, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -514,14 +498,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
   m_PrefabInstance: {fileID: 6094529981892857571}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1785340491591879726 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
-  m_PrefabInstance: {fileID: 6094529981892857571}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785340491591879728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09b7b6f503a820a0587a1ae8aa9251cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

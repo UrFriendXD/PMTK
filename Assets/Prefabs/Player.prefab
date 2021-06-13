@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &5499690150978224849
@@ -124,11 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5.5
+  payloadBody: {fileID: 0}
+  windForce: 0
   releaseVelocityMultiplier: 1.3
-  releaseForce: 2
+  releaseForceUpdate: 40
+  releaseImpulseForce: 0
   releaseTime: 1.2
   releaseWindForce: 4
   catchDistance: 7
+  _payloadAnimationController: {fileID: 0}
 --- !u!114 &5499690150978224844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +190,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 015cea64-1570-4e9d-972a-0a0605d81886
     m_ActionName: Player/Tether[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5499690150978224845}
+        m_TargetAssemblyTypeName: Player.PlayerController, Assembly-CSharp
+        m_MethodName: OnRestart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 76e8a872-b0ce-447b-ab36-9a07a9929ba0
+    m_ActionName: Player/Restart Game[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -320,6 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e37588c5dd40fdb19ed98403775271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jointMass: 0.2
+  jointCount: 8
+  shouldHaveCollider: 1
+  jointWidth: 0.3
+  jointPhysicsMaterial: {fileID: 0}
 --- !u!95 &7530302205143101622
 Animator:
   serializedVersion: 3

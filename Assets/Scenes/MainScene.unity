@@ -418,6 +418,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 905590968177349151, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
   m_PrefabInstance: {fileID: 662614819}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1204041548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 386186226, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+  m_PrefabInstance: {fileID: 5499690150588367070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc928fa11b0b454a841f00717ce174a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1216905804
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,10 +545,6 @@ PrefabInstance:
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: inverseSpawnRate
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.size
@@ -897,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2888289433959517919, guid: 3f4250b19ed303341a354f2d47b916c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20
+      value: -31
       objectReference: {fileID: 0}
     - target: {fileID: 2888289433959517919, guid: 3f4250b19ed303341a354f2d47b916c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1107,6 +1114,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPayload
       objectReference: {fileID: 0}
+    - target: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: releaseWindForce
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: releaseImpulseForce
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: _payloadAnimationController
+      value: 
+      objectReference: {fileID: 1204041548}
     - target: {fileID: 1785340491591879727, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: m_DefaultControlScheme
       value: 
