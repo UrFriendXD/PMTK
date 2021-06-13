@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
-  startLives: 3
-  lifeUIPrefab: {fileID: 4783028821290401668, guid: a623fc1096904764b9736ad33186f2c4, type: 3}
-  lifeUIContainer: {fileID: 0}
+  startLives: 1
+  livesUI: {fileID: 0}
+  _postcardController: {fileID: 0}
+  windForce: 20

@@ -79,6 +79,7 @@ namespace Player
                 {
                     joint.connectedBody = null;
                     payloadBody.velocity *= releaseVelocityMultiplier;
+                    _playerAnimationController.Fling();
                     _payloadAnimationController.Disconnect();
                 }
                 else if (PayloadDistance < catchDistance)
@@ -88,6 +89,14 @@ namespace Player
                     currentReleaseTime = 0f;
                     _payloadAnimationController.Connect();
                 }
+            }
+        }
+
+        public void OnRestart(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                GameManager.Instance.RestartGame();
             }
         }
 
