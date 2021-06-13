@@ -73,6 +73,9 @@ public class UIController : MonoBehaviour
 
     public void OnButtonHover()
     {
+        if (!playButton.enabled || !playButton.gameObject.activeInHierarchy)
+            return;
+        
         TextMeshProUGUI text = playButton.GetComponentInChildren<TextMeshProUGUI>();
         text.fontStyle = FontStyles.Underline;
         text.color = selectionColor;
