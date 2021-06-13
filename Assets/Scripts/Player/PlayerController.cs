@@ -16,6 +16,7 @@ namespace Player
         [SerializeField] private float catchDistance = Mathf.Infinity;
 
         [SerializeField] private PayloadAnimationController _payloadAnimationController;
+        [SerializeField] private CatchIndicator catchIndicator;
         
         private Rigidbody2D rb;
         private DistanceJoint2D joint;
@@ -127,6 +128,14 @@ namespace Player
             {
                 payloadBody.AddForce(new Vector2(-GameManager.Instance.WindForce, 0f));
             }
+        }
+
+        private void Update()
+        {
+            if (IsReleased && PayloadDistance < catchDistance)
+                catchIndicator.Show();
+            else
+                catchIndicator.Hide();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
