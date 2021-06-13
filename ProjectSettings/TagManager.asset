@@ -9,6 +9,7 @@ TagManager:
   - PayloadObstacle
   - DestroyPatternTrigger
   - DestroySceneTrigger
+  - Title Card
   layers:
   - Default
   - TransparentFX

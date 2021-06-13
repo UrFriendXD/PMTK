@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private int startLives;
-    [SerializeField] private LivesUI livesUI;
-    [SerializeField] private PostcardController _postcardController;
+    public TextMeshProUGUI scoreText;
+    // [SerializeField] private int startLives;
+    [SerializeField] private PostcardController cardController;
 
     private int score;
     [SerializeField] private float windForce = 5f;
@@ -17,7 +16,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public float ViewportRightSide { get; private set; }
-    
+
     public float WindForce => windForce;
 
     public int Score
@@ -43,39 +42,33 @@ public class GameManager : MonoBehaviour
         set
         {
             lives = value;
-            livesUI.UpdateLivesUI(lives);
+            // livesUI.UpdateLivesUI(lives);
         }
-    }    
-    
+    }
+
     private void Awake()
     {
         Reset();
         if (Instance != null)
         {
             Instance.scoreText = scoreText;
-            Instance.livesUI = livesUI;
-            Instance._postcardController = _postcardController;
+            Instance.cardController = cardController;
             Destroy(this);
             return;
         }
-        
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
         ViewportRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)).x;
     }
 
-    private void Start()
+    public void UpdateScoreUI()
     {
-        //_postcardController.Spawn();
-        //SceneManager.sceneLoaded += RestartGameAfterLoad;
+        if (scoreText)
+            scoreText.text = Score.ToString();
     }
 
-    private void UpdateScoreUI()
-    {
-        scoreText.text = "Score: " + Score;
-    }
-    
     public void LoseLife()
     {
         Debug.Log("Lose Life");
@@ -90,16 +83,47 @@ public class GameManager : MonoBehaviour
     private void Reset()
     {
         Score = 0;
-        Lives = startLives;
-        _postcardController.Spawn();
+        // Lives = startLives;
     }
 
+    [ContextMenu("Game Over")]
     private void GameOver()
     {
         // TODO
         Debug.Log("Game Over");
         Reset();
         // SceneManager.LoadScene(0);
+
+        cardController.Rasterise();
+    }
+
+    private void Start()
+    {
+        cardController.Spawn();
+        cardController.Top.ShowUI(UIController.UIType.Menu);
+    }
+
+    public void OnBeginPlay()
+    {
+        if (!Camera.main)
+        {
+            Debug.LogError("There is no main camera.");
+            return;
+        }
+
+        GameObject titleCard = GameObject.FindGameObjectWithTag("Title Card");
+        if (titleCard && titleCard.activeInHierarchy)
+        {
+            cardController.Rasterise(false);
+            titleCard.SetActive(false);
+        }
+
+        cardController.Disable();
+        cardController.Spawn();
+        cardController.Top.ShowUI(UIController.UIType.Game);
+        // TODO: Start the game (reset score, start obstacle spawning?)
+
+        Reset();
     }
 
     public void RestartGame()
@@ -109,6 +133,6 @@ public class GameManager : MonoBehaviour
 
     private void RestartGameAfterLoad(Scene scene, LoadSceneMode mode)
     {
-        _postcardController.Spawn();
+        cardController.Spawn();
     }
 }
