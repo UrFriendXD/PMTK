@@ -78,7 +78,6 @@ namespace Player
         {
             if (context.started)
             {
-                Debug.Log("Tether" + gameObject.name);
                 // When payload is still attached and we're about to release
                 if (!IsReleased)
                 {

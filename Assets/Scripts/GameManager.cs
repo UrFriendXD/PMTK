@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public float WindForce => windForce;
 
+    public bool GameActive;
+
     public int Score
     {
         get
@@ -89,12 +91,14 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Game Over")]
     private void GameOver()
     {
-        // TODO
+        // TODO have a timer for animations and raterise 
         Debug.Log("Game Over");
         Reset();
         // SceneManager.LoadScene(0);
 
         cardController.Rasterise();
+
+        GameActive = false;
     }
 
     private void Start()
@@ -122,6 +126,7 @@ public class GameManager : MonoBehaviour
         cardController.Spawn();
         cardController.Top.ShowUI(UIController.UIType.Game);
         // TODO: Start the game (reset score, start obstacle spawning?)
+        GameActive = true;
 
         Reset();
     }

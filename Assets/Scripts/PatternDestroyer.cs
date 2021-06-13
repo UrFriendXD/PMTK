@@ -10,7 +10,7 @@ public class PatternDestroyer : MonoBehaviour
         }
         else if (other.CompareTag("Payload"))
         {
-            GameManager.Instance.RestartGame();
+            GameManager.Instance.LoseLife();
         }
         else
         {

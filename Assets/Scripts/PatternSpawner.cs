@@ -1,20 +1,36 @@
+using System;
 using System.Collections.Generic;
+using System.Timers;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PatternSpawner : MonoBehaviour
 {
-    [SerializeField] private int inverseSpawnRate;
+    [SerializeField] private int TimeBetweenSpawn;
     [SerializeField] private List<GameObject> patternPrefabs;
 
     private GameManager gameManager;
+    private float timer = 0;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        
-        InvokeRepeating(nameof(SpawnRandomPattern), 0, inverseSpawnRate);
+        timer = TimeBetweenSpawn;
+    }
+
+    private void Update()
+    {
+        if (gameManager.GameActive)
+        {
+            if (timer <= 0)
+            {
+                SpawnRandomPattern();
+                timer = TimeBetweenSpawn;
+            }
+
+            timer -= Time.deltaTime;
+        }
     }
 
     private void SpawnRandomPattern()

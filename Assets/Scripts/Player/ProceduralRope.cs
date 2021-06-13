@@ -19,7 +19,7 @@ namespace Player
 
         private LineRenderer lineRenderer;
         private PlayerController playerController;
-        private Joint2D rootJoint;
+        private DistanceJoint2D rootJoint;
         private float distancePerSegment;
         private List<Joint2D> joints = new List<Joint2D>();
 
@@ -27,7 +27,7 @@ namespace Player
         {
             playerController = GetComponent<PlayerController>();
             lineRenderer = GetComponent<LineRenderer>();
-            rootJoint = GetComponent<Joint2D>();
+            rootJoint = GetComponent<DistanceJoint2D>();
 
             var ropeController = rootJoint.gameObject.AddComponent<RopeController>();
             ropeController.OnJointBreak += OnRopeBreak;
@@ -51,7 +51,7 @@ namespace Player
 
                 Vector3[] positions = joints
                     .Select(h => h.transform.position)
-                    .Prepend(transform.position)
+                    .Prepend(transform.position + (Vector3)rootJoint.anchor)
                     .Append(playerController.PayloadBody.position)
                     .ToArray();
                 
