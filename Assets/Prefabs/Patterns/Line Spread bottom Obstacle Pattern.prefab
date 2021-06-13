@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8499056312960652868, guid: 74d79e935ecab59a4978bbea9de344ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8499056312960652868, guid: 74d79e935ecab59a4978bbea9de344ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8499056312960652868, guid: 74d79e935ecab59a4978bbea9de344ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8499056312960652868, guid: 74d79e935ecab59a4978bbea9de344ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 8499056312960652868, guid: 74d79e935ecab59a4978bbea9de344ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5120568878968917843, guid: 9f2d77e39e4181340ad13ddd69c22db7, type: 3}
       propertyPath: m_Name
-      value: One Obstacle Pattern
+      value: L bottom Obstacle Pattern 1
       objectReference: {fileID: 0}
     - target: {fileID: 5120568878968917843, guid: 9f2d77e39e4181340ad13ddd69c22db7, type: 3}
       propertyPath: m_Layer
