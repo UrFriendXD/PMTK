@@ -50,4 +50,7 @@ MonoBehaviour:
   windForceAcceleration: 0.2
   playerController: {fileID: 0}
   currentWindForce: 0
+  connectedScorePerSecond: 0
+  disconnectedScorePerSecond: 1
+  addScoreOnDisconnect: 1
   GameActive: 0
