@@ -40,7 +40,7 @@ public class PayloadAnimationController : MonoBehaviour
     public void Connect()
     {
         _animator.SetBool(Tethered, true);
-        Debug.Log("CONNECT");
+        // Debug.Log("CONNECT");
     }
 
     public void Disconnect()

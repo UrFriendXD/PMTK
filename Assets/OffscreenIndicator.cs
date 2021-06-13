@@ -15,11 +15,13 @@ public class OffscreenIndicator : MonoBehaviour
     private OffscreenType offscreenType = OffscreenType.OnScreen;
     private static readonly int IsLeft = Animator.StringToHash("IsLeft");
 
+    private float centrePositionX;
     private float leftPositionX;
     private float rightPositionX;
 
     private void Start()
     {
+        centrePositionX = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth / 2, camera.pixelHeight / 2)).x;
         leftPositionX = camera.ScreenToWorldPoint(new Vector2(0, 0)).x + padding;
         rightPositionX = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth, camera.pixelHeight)).x - padding;
     }
@@ -56,7 +58,9 @@ public class OffscreenIndicator : MonoBehaviour
         }
         else
         {
-            offscreenType = camera.WorldToScreenPoint(target.position).x < 0 ? OffscreenType.OffscreenLeft : OffscreenType.OffscreenRight;
+            offscreenType = camera.WorldToScreenPoint(target.position).x < centrePositionX ?
+                OffscreenType.OffscreenLeft :
+                OffscreenType.OffscreenRight;
         }
     }
 
@@ -69,7 +73,7 @@ public class OffscreenIndicator : MonoBehaviour
         else
         {
             spriteRenderer.enabled = true;
-
+            
             animator.SetBool(IsLeft, offscreenType == OffscreenType.OffscreenLeft);
         }
     }
