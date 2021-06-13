@@ -354,7 +354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 97.45}
+  m_AnchoredPosition: {x: 130, y: 97.45}
   m_SizeDelta: {x: 634.21, y: 107.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1183266598613072261
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLACENAME
+  m_text: Sybil
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dab7444370226b148a17069a41938c28, type: 2}
   m_sharedMaterial: {fileID: 4086987399439747892, guid: dab7444370226b148a17069a41938c28, type: 2}
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
