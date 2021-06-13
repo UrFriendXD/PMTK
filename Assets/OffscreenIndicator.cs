@@ -96,8 +96,8 @@ public class OffscreenIndicator : MonoBehaviour
     private void ToggleIndicator()
     {
         if (horizontalPosition == HorizontalPositionType.Centre &&
-            verticalPosition == VerticalPositionType.Centre )// ||
-            //!playerController.IsReleased)
+            verticalPosition == VerticalPositionType.Centre ||
+            !playerController.IsReleased)
         {
             headSpriteRenderer.enabled = false;
             arrowSpriteRenderer.enabled = false;
