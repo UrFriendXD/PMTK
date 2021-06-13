@@ -9,7 +9,6 @@ namespace Player
         [SerializeField] private float moveSpeed = 2f;
         [SerializeField] private Rigidbody2D payloadBody;
         [SerializeField] private float windForce;
-        [SerializeField] private DistanceJoint2D payloadJoint;
         [Header("Release")] 
         [SerializeField] private float releaseVelocityMultiplier = 1f;
         [SerializeField] private float releaseForceUpdate = 40f;
@@ -24,10 +23,12 @@ namespace Player
         private float moveValue;
         private float startDistance;
         private float currentReleaseTime;
-        private float payloadJointStartDistance;
+        private ProceduralRope proceduralRope;
+        private DistanceJoint2D mainJoint;
 
         private PlayerAnimationController _playerAnimationController;
-        public bool IsReleased => payloadJoint.connectedBody == null;
+        
+        public bool IsReleased => mainJoint.connectedBody == null;
 
         public float MoveValue => moveValue;
 
@@ -39,14 +40,17 @@ namespace Player
         
         public float PayloadDistance => Vector2.Distance(payloadBody.position, rb.position);
 
+        public Rigidbody2D AttachedRigidbody => rb;
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
 
             startDistance = PayloadDistance;
-            payloadJointStartDistance = payloadJoint.distance;
 
             _playerAnimationController = GetComponent<PlayerAnimationController>();
+            proceduralRope = GetComponent<ProceduralRope>();
+            mainJoint = GetComponent<DistanceJoint2D>();
             //Debug.Log(_playerAnimationController);
         }
 
@@ -71,17 +75,18 @@ namespace Player
         {
             if (context.started)
             {
+                // When payload is still attached and we're about to release
                 if (!IsReleased)
                 {
-                    payloadJoint.connectedBody = null;
+                    proceduralRope.ClearJoints();
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
                 }
+                // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
                 {
-                    payloadJoint.connectedBody = payloadBody;
-                    payloadJoint.distance = payloadJointStartDistance;
                     currentReleaseTime = 0f;
+                    proceduralRope.GenerateJoints();
                 }
             }
         }
