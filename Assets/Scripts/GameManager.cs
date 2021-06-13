@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private int startLives;
-    [SerializeField] private LivesUI livesUI;
-    [SerializeField] private PostcardController _postcardController;
+    public TextMeshProUGUI scoreText;
+    // [SerializeField] private int startLives;
+    [SerializeField] private PostcardController cardController;
 
     private int score;
     [SerializeField] private float windForce = 5f;
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour
         set
         {
             lives = value;
-            livesUI.UpdateLivesUI(lives);
+            // livesUI.UpdateLivesUI(lives);
         }
     }    
     
@@ -61,14 +60,10 @@ public class GameManager : MonoBehaviour
         ViewportRightSide = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, Camera.main.nearClipPlane)).x;
     }
 
-    private void Start()
+    public void UpdateScoreUI()
     {
-        _postcardController.Spawn();
-    }
-
-    private void UpdateScoreUI()
-    {
-        scoreText.text = "Score: " + Score;
+        if (scoreText)
+            scoreText.text = Score.ToString();
     }
     
     public void LoseLife()
@@ -85,14 +80,46 @@ public class GameManager : MonoBehaviour
     private void Reset()
     {
         Score = 0;
-        Lives = startLives;
+        // Lives = startLives;
     }
 
+    [ContextMenu("Game Over")]
     private void GameOver()
     {
         // TODO
         Debug.Log("Game Over");
         Reset();
         // SceneManager.LoadScene(0);
+
+        cardController.Rasterise();
+    }
+
+    private void Start()
+    {
+        cardController.Spawn();
+        cardController.Top.ShowUI(UIController.UIType.Menu);
+    }
+
+    public void OnBeginPlay()
+    {
+        if (!Camera.main)
+        {
+            Debug.LogError("There is no main camera.");
+            return;
+        }
+
+        GameObject titleCard = GameObject.FindGameObjectWithTag("Title Card");
+        if (titleCard && titleCard.activeInHierarchy)
+        {
+            cardController.Rasterise(false);
+            titleCard.SetActive(false);
+        }
+
+        cardController.Disable();
+        cardController.Spawn();
+        cardController.Top.ShowUI(UIController.UIType.Game);
+        // TODO: Start the game (reset score, start obstacle spawning?)
+
+        Reset();
     }
 }

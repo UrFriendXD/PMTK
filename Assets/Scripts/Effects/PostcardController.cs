@@ -13,11 +13,13 @@ public class PostcardController : MonoBehaviour
     
     private Transform CardParent => cardParent ? cardParent : cardParent = transform;
 
-    [ContextMenu("Spawn")]
+    public Postcard Top => cards.Count > 0 ? cards[cards.Count - 1] : null;
+        
     public void Spawn()
     {
-        Rasterise();
         Create();
+        Top.HideUI();
+        Appear();
     }
 
     [ContextMenu("Clear")]
@@ -30,6 +32,14 @@ public class PostcardController : MonoBehaviour
         }
         
         cards.Clear();
+    }
+
+    private void Appear()
+    {
+        if (cards.Count == 0 || cards[0] is null)
+            return;
+        
+        cards[cards.Count - 1].Appear();
     }
     
     private void Create()
@@ -60,11 +70,19 @@ public class PostcardController : MonoBehaviour
         cards.RemoveAt(0);
     }
     
-    private void Rasterise()
+    public void Rasterise(bool withMaterial = true)
     {
         if (cards.Count == 0 || cards[0] is null)
             return;
         
-        cards[cards.Count - 1].Rasterise();
+        cards[cards.Count - 1].Rasterise(withMaterial);
+    }
+
+    public void Disable()
+    {
+        if (cards.Count == 0 || cards[0] is null)
+            return;
+        
+        cards[cards.Count - 1].DisableUI();
     }
 }
