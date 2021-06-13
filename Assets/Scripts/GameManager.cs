@@ -52,7 +52,11 @@ public class GameManager : MonoBehaviour
         Reset();
         if (Instance != null)
         {
+            Instance.scoreText = scoreText;
+            Instance.livesUI = livesUI;
+            Instance._postcardController = _postcardController;
             Destroy(this);
+            return;
         }
         
         Instance = this;
@@ -63,7 +67,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _postcardController.Spawn();
+        //_postcardController.Spawn();
+        //SceneManager.sceneLoaded += RestartGameAfterLoad;
     }
 
     private void UpdateScoreUI()
@@ -86,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         Score = 0;
         Lives = startLives;
+        _postcardController.Spawn();
     }
 
     private void GameOver()
@@ -94,5 +100,15 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         Reset();
         // SceneManager.LoadScene(0);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void RestartGameAfterLoad(Scene scene, LoadSceneMode mode)
+    {
+        _postcardController.Spawn();
     }
 }

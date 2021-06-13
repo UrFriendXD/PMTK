@@ -3,6 +3,7 @@ Shader "Image Effects/Posterise"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Tint ("Tint", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -37,12 +38,14 @@ Shader "Image Effects/Posterise"
             }
 
             sampler2D _MainTex;
+            float4 _Tint;
 
             fixed4 frag (v2f i) : SV_Target
             {
                 const fixed4 col = tex2D(_MainTex, i.uv);
-                float grey = col.r * 0.21 + col.g * 0.71 + col.b * 0.07;
-                return float4(grey, grey, grey, 1);
+                // float grey = col.r * 0.21 + col.g * 0.71 + col.b * 0.07;
+                // return float4(grey, grey, grey, 1);
+                return float4(col.rgb * _Tint.rgb, 1);
             }
             ENDCG
         }

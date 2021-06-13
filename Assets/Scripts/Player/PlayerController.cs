@@ -17,6 +17,8 @@ namespace Player
         [SerializeField] private float releaseWindForce = 10f;
         [Header("Catch")] 
         [SerializeField] private float catchDistance = Mathf.Infinity;
+
+        [SerializeField] private PayloadAnimationController _payloadAnimationController;
         
         private Rigidbody2D rb;
         private bool hasMotorInput;
@@ -81,13 +83,24 @@ namespace Player
                     proceduralRope.ClearJoints();
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
+                    _playerAnimationController.Fling();
+                    _payloadAnimationController.Disconnect();
                 }
                 // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
                 {
                     currentReleaseTime = 0f;
                     proceduralRope.GenerateJoints();
+                    _payloadAnimationController.Connect();
                 }
+            }
+        }
+
+        public void OnRestart(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                GameManager.Instance.RestartGame();
             }
         }
 
