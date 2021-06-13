@@ -106,16 +106,19 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Game Over")]
     private void GameOver()
     {
-        // TODO have a timer for animations and raterise 
-        Debug.Log("Game Over");
-        // Reset();
-        PatternSpawner.Instance.Reset();
-        // SceneManager.LoadScene(0);
+        if (GameActive)
+        {
+            // TODO have a timer for animations and raterise 
+            Debug.Log("Game Over");
+            // Reset();
+            PatternSpawner.Instance.Reset();
+            // SceneManager.LoadScene(0);
 
-        cardController.Rasterise();
-        playerController.Death();
+            cardController.Rasterise();
+            playerController.Death();
 
-        GameActive = false;
+            GameActive = false;
+        }
     }
 
     private void Start()
