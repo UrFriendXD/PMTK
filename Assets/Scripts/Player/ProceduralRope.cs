@@ -22,9 +22,12 @@ namespace Player
         private LineRenderer lineRenderer;
         private PlayerController playerController;
         private DistanceJoint2D rootJoint;
-        private Joint2D endJoint;
         private float distancePerSegment;
+        private List<GameObject> jointObjects = new List<GameObject>();
         private List<Joint2D> joints = new List<Joint2D>();
+        private List<Joint2D> shownLineJoints = new List<Joint2D>();
+        
+        public Joint2D EndJoint { get; private set; }
 
         private void Awake()
         {
@@ -50,16 +53,16 @@ namespace Player
             }
             else
             {
-                lineRenderer.positionCount = joints.Count + 1;
+                lineRenderer.positionCount = shownLineJoints.Count + 1;
 
-                if (endJoint)
+                if (EndJoint)
                     lineRenderer.positionCount++;
 
-                var positions = joints
+                var positions = shownLineJoints
                     .Select(h => h.transform.position)
                     .Prepend(transform.position + (Vector3) rootJoint.anchor);
 
-                if (endJoint)
+                if (EndJoint)
                     positions = positions.Append(playerController.PayloadBody.position);
                 
                 lineRenderer.SetPositions(positions.ToArray());
@@ -102,10 +105,12 @@ namespace Player
                 
                 lastJoint = joint;
                 joints.Add(joint);
+                jointObjects.Add(joint.gameObject);
+                shownLineJoints.Add(joint);
             }
             
             lastJoint.connectedBody = playerController.PayloadBody;
-            endJoint = lastJoint;
+            EndJoint = lastJoint;
             playerController.PayloadBody.sharedMaterial = jointPhysicsMaterial;
             //ApplyCollider(lastJoint.gameObject, direction);
             SetSegmentJointDistance(lastJoint);
@@ -118,24 +123,28 @@ namespace Player
         
         public IEnumerator DoDelayedClearJoints(float delay, Vector2 impulseForce)
         {
-            endJoint.attachedRigidbody.mass = endJointReleaseMass;
-            endJoint.attachedRigidbody.AddForce(impulseForce, ForceMode2D.Impulse);
-            endJoint.connectedBody = null;
-            joints.Remove(endJoint);
-            Destroy(endJoint);
+            EndJoint.attachedRigidbody.mass = endJointReleaseMass;
+            EndJoint.attachedRigidbody.AddForce(impulseForce, ForceMode2D.Impulse);
+            EndJoint.connectedBody = null;
+            shownLineJoints.Remove(EndJoint);
+            
+            Destroy(EndJoint);
             yield return new WaitForSeconds(delay);
             ClearJoints();
         }
 
         public void ClearJoints()
         {
-            foreach (Joint2D joint in joints)
+            foreach (GameObject jointObject in jointObjects)
             {
-                Destroy(joint.gameObject);
+                if (jointObject != null)
+                    Destroy(jointObject);
             }
             
             rootJoint.connectedBody = null;
             joints.Clear();
+            jointObjects.Clear();
+            shownLineJoints.Clear();
         }
 
         private void ApplyCollider(Rigidbody2D body, Vector2 direction)
