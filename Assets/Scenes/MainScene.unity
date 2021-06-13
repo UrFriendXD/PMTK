@@ -343,25 +343,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 754072424}
     m_Modifications:
-    - target: {fileID: 4653669130739688858, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4653669130739688859, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -866,18 +850,6 @@ PrefabInstance:
       propertyPath: TimeBetweenSpawn
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: patternPrefabs.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: patternPrefabs.Array.data[5]
-      value: 
-      objectReference: {fileID: 883623204493920154, guid: dc99f75f8508a63fb9e3f545bbfb0bf1, type: 3}
-    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: patternPrefabs.Array.data[6]
-      value: 
-      objectReference: {fileID: 883623204493920154, guid: 47b31f24f6415b345a83ca5471a255e5, type: 3}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.size
       value: 3

@@ -47,11 +47,10 @@ namespace Player
 
         private void Update()
         {
-            if (playerController.IsReleased)
-            {
-                lineRenderer.positionCount = 0;
-            }
-            else
+
+            lineRenderer.positionCount = 0;
+
+            if (!playerController.IsReleased)
             {
                 lineRenderer.positionCount = shownLineJoints.Count + 1;
 
