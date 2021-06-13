@@ -274,16 +274,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6349706836784411023}
     m_Modifications:
-    - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
-      propertyPath: jointMass
-      value: 0.3
     - target: {fileID: 2414778829281765703, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1785340490656600316}
-    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 3
+    - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: jointMass
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: jointCount
@@ -326,20 +323,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6200000, guid: 6cb3d3236036c854cab3a80fb3d8c994, type: 2}
     - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionId
-      value: 015cea64-1570-4e9d-972a-0a0605d81886
+      value: 76e8a872-b0ce-447b-ab36-9a07a9929ba0
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionName
-      value: Player/Tether[/Keyboard/space]
+      value: Player/Restart Game[/Keyboard/r]
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnTether
+      value: OnRestart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player.PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player.PlayerController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Controller.PlayerController, Assembly-CSharp
+      value: Player.PlayerController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: moveSpeed
