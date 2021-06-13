@@ -66,7 +66,7 @@ public class PostcardController : MonoBehaviour
         if (cards.Count == 0)
             return;
         
-        DestroyImmediate(cards[0].gameObject);
+        Destroy(cards[0].gameObject);
         cards.RemoveAt(0);
     }
     

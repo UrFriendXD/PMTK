@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public float ViewportRightSide { get; private set; }
-    
+
     public float WindForce => windForce;
 
     public int Score
@@ -44,16 +44,20 @@ public class GameManager : MonoBehaviour
             lives = value;
             // livesUI.UpdateLivesUI(lives);
         }
-    }    
-    
+    }
+
     private void Awake()
     {
         Reset();
         if (Instance != null)
         {
+            Instance.scoreText = scoreText;
+            Instance.livesUI = livesUI;
+            Instance._postcardController = _postcardController;
             Destroy(this);
+            return;
         }
-        
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -65,7 +69,7 @@ public class GameManager : MonoBehaviour
         if (scoreText)
             scoreText.text = Score.ToString();
     }
-    
+
     public void LoseLife()
     {
         Debug.Log("Lose Life");
@@ -121,5 +125,15 @@ public class GameManager : MonoBehaviour
         // TODO: Start the game (reset score, start obstacle spawning?)
 
         Reset();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void RestartGameAfterLoad(Scene scene, LoadSceneMode mode)
+    {
+        _postcardController.Spawn();
     }
 }
