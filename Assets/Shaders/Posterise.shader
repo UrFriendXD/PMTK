@@ -43,9 +43,7 @@ Shader "Image Effects/Posterise"
             fixed4 frag (v2f i) : SV_Target
             {
                 const fixed4 col = tex2D(_MainTex, i.uv);
-                float grey = col.r * 0.21 + col.g * 0.71 + col.b * 0.07;
-                return float4(grey, grey, grey, 1);
-                // return float4(col.rgb * _Tint.rgb, 1);
+                return float4(col.rgb * _Tint.rgb, 1);
             }
             ENDCG
         }
