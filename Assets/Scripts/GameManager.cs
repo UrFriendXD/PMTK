@@ -121,8 +121,8 @@ public class GameManager : MonoBehaviour
             PatternSpawner.Instance.Reset();
             // SceneManager.LoadScene(0);
 
-            StartCoroutine(Rasterise());
             playerController.Death();
+            StartCoroutine(Rasterise());
             _audioSource.PlayOneShot(CameraShutter);
             GameActive = false;
         }
