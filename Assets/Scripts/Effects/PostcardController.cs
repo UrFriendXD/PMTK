@@ -39,7 +39,7 @@ public class PostcardController : MonoBehaviour
         if (cards.Count == 0 || cards[0] is null)
             return;
         
-        cards[cards.Count - 1].Appear();
+        cards[cards.Count - 1].Scale();
     }
     
     private void Create()
