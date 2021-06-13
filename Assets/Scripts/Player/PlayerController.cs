@@ -37,6 +37,10 @@ namespace Player
         
         public bool IsReleased => mainJoint.connectedBody == null;
 
+        public bool CanRelease => currentReleaseCooldown <= 0f;
+        
+        public bool IsPartiallyReleased { get; private set; }
+
         public float MoveValue => moveValue;
 
         public Rigidbody2D PayloadBody => payloadBody;
@@ -71,6 +75,8 @@ namespace Player
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            if (!GameManager.Instance.GameActive) return;
+            
             moveValue = context.ReadValue<float>();
 
             if (context.started)
@@ -88,11 +94,14 @@ namespace Player
 
         public void OnTether(InputAction.CallbackContext context)
         {
-            if (context.started)
+            if (!GameManager.Instance.GameActive) return;
+            
+            if (context.started && CanRelease)
             {
                 // When payload is still attached and we're about to release
-                if (!IsReleased && currentReleaseCooldown <= 0)
+                if (!IsReleased)
                 {
+                    Debug.Log("Released with cooldown " + currentReleaseCooldown);
                     UnJoinPayload();
                     currentReleaseCooldown = releaseCooldown;
                     payloadBody.velocity *= releaseVelocityMultiplier;
@@ -112,7 +121,7 @@ namespace Player
         {
             StartCoroutine(proceduralRope.DoDelayedClearJoints(ropeDelay, Vector2.right * ropeReleaseImpulseForce));
             _payloadAnimationController.Disconnect();
-
+            IsPartiallyReleased = true;
         }
 
         /// Logic for joining payload
@@ -121,6 +130,7 @@ namespace Player
             currentReleaseTime = 0f;
             proceduralRope.GenerateJoints();
             _payloadAnimationController.Connect();
+            IsPartiallyReleased = false;
         }
 
         public void Respawn()
