@@ -74,12 +74,13 @@ public class GameManager : MonoBehaviour
     public void LoseLife()
     {
         Debug.Log("Lose Life");
-        Lives--;
+        //Lives--;
 
-        if (Lives == 0)
+        GameOver();
+        /*if (Lives == 0)
         {
             GameOver();
-        }
+        }*/
     }
 
     private void Reset()
