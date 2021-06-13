@@ -74,7 +74,7 @@ namespace Player
                 jointBody.sharedMaterial = jointPhysicsMaterial;
                 ApplyCollider(jointBody, direction);
 
-                var joint = jointObject.AddComponent<DistanceJoint2D>();
+                var joint = jointObject.AddComponent<SpringJoint2D>();
                 lastJoint.connectedBody = jointBody;
                 //joint.breakForce = 1200;
                 joint.anchor = offset;
@@ -125,6 +125,14 @@ namespace Player
                 distanceJoint.autoConfigureDistance = false;
                 distanceJoint.distance = distancePerSegment / 2f;
                 distanceJoint.maxDistanceOnly = true;
+            }
+
+            if (joint is SpringJoint2D springJoint)
+            {
+                springJoint.autoConfigureDistance = false;
+                springJoint.distance = distancePerSegment / 2f;
+                springJoint.frequency = 0;
+                springJoint.dampingRatio = 1;
             }
         }
     }
