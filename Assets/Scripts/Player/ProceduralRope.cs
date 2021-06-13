@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Controller;
 using UnityEngine;
 
 namespace Player
@@ -12,6 +13,9 @@ namespace Player
         [SerializeField] private bool shouldHaveCollider = true;
         [SerializeField] private float jointWidth = 0.3f;
         [SerializeField] private PhysicsMaterial2D jointPhysicsMaterial;
+        [Header("Break")]
+        [SerializeField] private bool shouldBreak;
+        [SerializeField] private float ropeBreakForce = 1100;
 
         private LineRenderer lineRenderer;
         private PlayerController playerController;
@@ -23,7 +27,10 @@ namespace Player
         {
             playerController = GetComponent<PlayerController>();
             lineRenderer = GetComponent<LineRenderer>();
-            rootJoint = GetComponent<DistanceJoint2D>();
+            rootJoint = GetComponent<Joint2D>();
+
+            var ropeController = rootJoint.gameObject.AddComponent<RopeController>();
+            ropeController.OnJointBreak += OnRopeBreak;
         }
 
         private void Start()
@@ -76,11 +83,15 @@ namespace Player
 
                 var joint = jointObject.AddComponent<DistanceJoint2D>();
                 lastJoint.connectedBody = jointBody;
-                //joint.breakForce = 1200;
+                
+                if (shouldBreak)
+                    joint.breakForce = ropeBreakForce;
                 joint.anchor = offset;
                 //joint.anchor = Vector2.zero;
                 //joint.connectedAnchor = offset;
                 SetSegmentJointDistance(lastJoint);
+                var ropeController = jointObject.AddComponent<RopeController>();
+                ropeController.OnJointBreak += OnRopeBreak;
                 
                 lastJoint = joint;
                 joints.Add(joint);
@@ -90,6 +101,11 @@ namespace Player
             playerController.PayloadBody.sharedMaterial = jointPhysicsMaterial;
             //ApplyCollider(lastJoint.gameObject, direction);
             SetSegmentJointDistance(lastJoint);
+        }
+
+        private void OnRopeBreak()
+        {
+            ClearJoints();
         }
 
         public void ClearJoints()
