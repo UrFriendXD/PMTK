@@ -317,9 +317,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 6715992784973652789}
   gameCanvas: {fileID: 5094167897435755063}
-  buttons:
-  - {fileID: 4281649963562078355}
+  playButton: {fileID: 4281649963562078355}
   scoreText: {fileID: 3442793864538593706}
+  selectionColor: {r: 1, g: 0.78431374, b: 0.4117647, a: 1}
 --- !u!1 &2502439823702354059
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +600,7 @@ GameObject:
   - component: {fileID: 3554791842702916336}
   - component: {fileID: 8983589259623830072}
   - component: {fileID: 4281649963562078355}
+  - component: {fileID: 2156081504704722347}
   m_Layer: 6
   m_Name: Play Button
   m_TagString: Untagged
@@ -721,6 +722,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2156081504704722347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068380586905493947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4366050088019470800}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: OnButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4366050088019470800}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: OnButtonExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6340831358851866534
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,8 +8,9 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private Canvas menuCanvas;
     [SerializeField] private Canvas gameCanvas;
-    [SerializeField] private Button[] buttons;
+    [SerializeField] private Button playButton;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Color selectionColor;
 
     public enum UIType
     {
@@ -52,12 +53,25 @@ public class UIController : MonoBehaviour
 
     public void Disable()
     {
-        foreach (Button button in buttons)
-            button.enabled = false;
+        playButton.enabled = false;
     }
 
     public void OnButtonPressed()
     {
         GameManager.Instance.OnBeginPlay();
+    }
+
+    public void OnButtonHover()
+    {
+        TextMeshProUGUI text = playButton.GetComponentInChildren<TextMeshProUGUI>();
+        text.fontStyle = FontStyles.Underline;
+        text.color = selectionColor;
+    }
+
+    public void OnButtonExit()
+    {
+        TextMeshProUGUI text = playButton.GetComponentInChildren<TextMeshProUGUI>();
+        text.fontStyle = FontStyles.Normal;
+        text.color = Color.white;
     }
 }
