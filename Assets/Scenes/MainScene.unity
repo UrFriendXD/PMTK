@@ -747,7 +747,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1751992480}
     m_Modifications:
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
-      propertyPath: m_Enabled
+      propertyPath: TimeBetweenSpawn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
@@ -1385,6 +1385,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1528054430}
+    - target: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: releaseImpulseForce
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 1785340491591879727, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_ActionId
       value: 76e8a872-b0ce-447b-ab36-9a07a9929ba0
