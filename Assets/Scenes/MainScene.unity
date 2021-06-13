@@ -267,10 +267,6 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
-      propertyPath: livesUI
-      value: 
-      objectReference: {fileID: 1426271813}
-    - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 150748056}
@@ -282,10 +278,6 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1795444580}
-    - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
-      propertyPath: _postcardController
-      value: 
-      objectReference: {fileID: 886595281}
     - target: {fileID: 2270056700349869994, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -405,6 +397,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2bb6e2654f164542bd90429d301823c, type: 3}
+--- !u!114 &661769021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
+  m_PrefabInstance: {fileID: 567764563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d56567e98c6694f816f2560dc08548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &662614819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -962,17 +965,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4836754318250187666, guid: 1a72ed052422b0c4fa9aa216b8ab7cc6, type: 3}
   m_PrefabInstance: {fileID: 4836754318971418065}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1426271813 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4836754318250187668, guid: 1a72ed052422b0c4fa9aa216b8ab7cc6, type: 3}
-  m_PrefabInstance: {fileID: 4836754318971418065}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01c3c9fcd25177469ace716d8944ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1476733595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1381,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1528054430}
+    - target: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 661769021}
     - target: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: releaseImpulseForce
       value: 150

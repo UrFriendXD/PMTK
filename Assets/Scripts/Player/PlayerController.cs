@@ -9,6 +9,7 @@ namespace Player
         [SerializeField] private float moveSpeed = 2f;
         [SerializeField] private Rigidbody2D payloadBody;
         [SerializeField] private float windForce;
+        [SerializeField] private GameManager gameManager;
         [Header("Release")] 
         [SerializeField] private float ropeReleaseImpulseForce;
         [SerializeField] private float ropeDelay = 0.2f;
@@ -107,6 +108,7 @@ namespace Player
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
                     _playerAnimationController.Fling();
+                    gameManager.OnRelease();
                 }
                 // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
