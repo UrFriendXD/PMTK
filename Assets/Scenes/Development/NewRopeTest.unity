@@ -1247,10 +1247,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPayload
       objectReference: {fileID: 0}
-    - target: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
-      propertyPath: windForce
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1785340491591879728, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: m_Layer
       value: 0
