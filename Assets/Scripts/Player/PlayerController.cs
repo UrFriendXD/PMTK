@@ -24,7 +24,7 @@ namespace Player
         private Rigidbody2D rb;
         private bool hasMotorInput;
         private float moveValue;
-        private float startDistance;
+        private float startPayloadDistance;
         private float currentReleaseTime;
         private ProceduralRope proceduralRope;
         private DistanceJoint2D mainJoint;
@@ -37,19 +37,27 @@ namespace Player
 
         public Rigidbody2D PayloadBody => payloadBody;
 
-        public float StartDistance => startDistance;
+        public float StartPayloadDistance => startPayloadDistance;
 
         public Vector2 PayloadVector => payloadBody.position - rb.position;
         
         public float PayloadDistance => Vector2.Distance(payloadBody.position, rb.position);
 
         public Rigidbody2D AttachedRigidbody => rb;
+        
+        public static PlayerController Instance { get; private set; }
 
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Debug.LogError("Multiple instances of player!");
+            }
+            
+            Instance = this;
             rb = GetComponent<Rigidbody2D>();
 
-            startDistance = PayloadDistance;
+            startPayloadDistance = PayloadDistance;
 
             _playerAnimationController = GetComponent<PlayerAnimationController>();
             proceduralRope = GetComponent<ProceduralRope>();
@@ -81,7 +89,7 @@ namespace Player
                 // When payload is still attached and we're about to release
                 if (!IsReleased)
                 {
-                    proceduralRope.ClearJoints();
+                    UnJoinPayload();
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
                     _playerAnimationController.Fling();
@@ -90,11 +98,31 @@ namespace Player
                 // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
                 {
-                    currentReleaseTime = 0f;
-                    proceduralRope.GenerateJoints();
+                    JoinPayload();
                     _payloadAnimationController.Connect();
                 }
             }
+        }
+
+        /// Logic for detaching payload
+        private void UnJoinPayload()
+        {
+            proceduralRope.ClearJoints();
+        }
+
+        /// Logic for joining payload
+        private void JoinPayload()
+        {
+            currentReleaseTime = 0f;
+            proceduralRope.GenerateJoints();
+        }
+
+        public void Respawn()
+        {
+            transform.position = Vector3.zero;
+            proceduralRope.ClearJoints();
+            payloadBody.position = Vector2.left * startPayloadDistance;
+            JoinPayload();
         }
 
         public void OnRestart(InputAction.CallbackContext context)

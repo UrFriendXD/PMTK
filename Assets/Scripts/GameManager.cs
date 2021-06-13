@@ -1,4 +1,5 @@
 using System;
+using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
         // TODO have a timer for animations and raterise 
         Debug.Log("Game Over");
         Reset();
+        PlayerController.Instance.Respawn();
         // SceneManager.LoadScene(0);
 
         cardController.Rasterise();
