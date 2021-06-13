@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     {
         cardController.Spawn();
         cardController.Top.ShowUI(UIController.UIType.Menu);
+        cardController.Top.posterise = false;
     }
 
     public void OnBeginPlay()
