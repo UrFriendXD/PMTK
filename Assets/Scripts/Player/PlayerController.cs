@@ -9,6 +9,7 @@ namespace Player
         [SerializeField] private float moveSpeed = 2f;
         [SerializeField] private Rigidbody2D payloadBody;
         [SerializeField] private float windForce;
+        [SerializeField] private GameManager gameManager;
         [Header("Release")] 
         [SerializeField] private float ropeReleaseImpulseForce;
         [SerializeField] private float ropeDelay = 0.2f;
@@ -36,6 +37,10 @@ namespace Player
         private PlayerAnimationController _playerAnimationController;
         
         public bool IsReleased => mainJoint.connectedBody == null;
+
+        public bool CanRelease => currentReleaseCooldown <= 0f;
+        
+        public bool IsPartiallyReleased { get; private set; }
 
         public float MoveValue => moveValue;
 
@@ -71,6 +76,8 @@ namespace Player
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            if (!GameManager.Instance.GameActive) return;
+            
             moveValue = context.ReadValue<float>();
 
             if (context.started)
@@ -88,16 +95,19 @@ namespace Player
 
         public void OnTether(InputAction.CallbackContext context)
         {
-            if (context.started)
+            if (!GameManager.Instance.GameActive) return;
+            
+            if (context.started && CanRelease)
             {
                 // When payload is still attached and we're about to release
-                if (!IsReleased && currentReleaseCooldown <= 0)
+                if (!IsReleased)
                 {
+                    Debug.Log("Released with cooldown " + currentReleaseCooldown);
                     UnJoinPayload();
                     currentReleaseCooldown = releaseCooldown;
                     payloadBody.velocity *= releaseVelocityMultiplier;
                     payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
-                    _playerAnimationController.Fling();
+                    gameManager.OnRelease();
                 }
                 // When about to catch the payload
                 else if (PayloadDistance < catchDistance)
@@ -112,7 +122,8 @@ namespace Player
         {
             StartCoroutine(proceduralRope.DoDelayedClearJoints(ropeDelay, Vector2.right * ropeReleaseImpulseForce));
             _payloadAnimationController.Disconnect();
-
+            _playerAnimationController.Fling();
+            IsPartiallyReleased = true;
         }
 
         /// Logic for joining payload
@@ -121,6 +132,8 @@ namespace Player
             currentReleaseTime = 0f;
             proceduralRope.GenerateJoints();
             _payloadAnimationController.Connect();
+            _playerAnimationController.Catch();
+            IsPartiallyReleased = false;
         }
 
         public void Respawn()
@@ -128,7 +141,13 @@ namespace Player
             transform.position = Vector3.zero;
             proceduralRope.ClearJoints();
             payloadBody.position = Vector2.left * startPayloadDistance;
+            _playerAnimationController.Respawn();
             JoinPayload();
+        }
+
+        public void Death()
+        {
+            _playerAnimationController.OnDeath();
         }
 
         public void OnRestart(InputAction.CallbackContext context)

@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 
 public class PatternSpawner : MonoBehaviour
 {
-    [SerializeField] private int TimeBetweenSpawn;
+    [SerializeField] private float TimeBetweenSpawnMax;
+    [SerializeField] private float TimeBetweenSpawnMin;
     [SerializeField] private float startDelay = 3f;
     [SerializeField] private List<GameObject> patternPrefabs;
 
@@ -23,7 +24,7 @@ public class PatternSpawner : MonoBehaviour
     {
         Instance = this;
         gameManager = FindObjectOfType<GameManager>();
-        timer = TimeBetweenSpawn;
+        timer = TimeBetweenSpawnMax;
     }
 
     public void Reset()
@@ -44,7 +45,7 @@ public class PatternSpawner : MonoBehaviour
             if (timer <= 0)
             {
                 SpawnRandomPattern();
-                timer = TimeBetweenSpawn;
+                timer = Random.Range(TimeBetweenSpawnMin, TimeBetweenSpawnMax);
             }
 
             timer -= Time.deltaTime;

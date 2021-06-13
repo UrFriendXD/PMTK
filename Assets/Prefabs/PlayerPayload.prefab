@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432554954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 0, z: 0}
+  m_LocalPosition: {x: -0.35, y: 0, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1785340490656600316}
@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 432554957}
+  _rb: {fileID: 0}
 --- !u!61 &8334487677384651064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -357,6 +358,10 @@ PrefabInstance:
       propertyPath: jointPhysicsMaterial
       value: 
       objectReference: {fileID: 6200000, guid: 6cb3d3236036c854cab3a80fb3d8c994, type: 2}
+    - target: {fileID: 4867362020054949291, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: payload
+      value: 
+      objectReference: {fileID: 386186226}
     - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 3
@@ -424,6 +429,10 @@ PrefabInstance:
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: catchDistance
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: releaseCooldown
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224845, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: releaseWindForce
@@ -567,13 +576,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
---- !u!4 &1785340491591879724 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
-  m_PrefabInstance: {fileID: 6094529981892857571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1785340491591879728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5499690150978224851, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+  m_PrefabInstance: {fileID: 6094529981892857571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1785340491591879724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5499690150978224847, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
   m_PrefabInstance: {fileID: 6094529981892857571}
   m_PrefabAsset: {fileID: 0}

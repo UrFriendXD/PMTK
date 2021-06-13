@@ -1,9 +1,9 @@
 using System;
+using System.Timers;
 using Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,18 +11,29 @@ public class GameManager : MonoBehaviour
     // [SerializeField] private int startLives;
     [SerializeField] private PostcardController cardController;
 
-    private int score;
-    [SerializeField] private float windForce = 5f;
+    private float score;
+    [SerializeField] private float startWindForce = 4f;
+    [SerializeField] private float maxWindForce = 5f;
+    [SerializeField] private float windForceAcceleration = 0.1f;
+    [SerializeField] private PlayerController playerController;
+
+    [SerializeField] private float currentWindForce;
+
+    [SerializeField] private float connectedScorePerSecond;
+    [SerializeField] private float disconnectedScorePerSecond;
+    [SerializeField] private float addScoreOnDisconnect;
 
     public static GameManager Instance { get; private set; }
 
     public float ViewportRightSide { get; private set; }
 
-    public float WindForce => windForce;
+    public float WindForce => currentWindForce;
 
     public bool GameActive;
+    
+    private float timer = 0;
 
-    public int Score
+    public float Score
     {
         get
         {
@@ -69,7 +80,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScoreUI()
     {
         if (scoreText)
-            scoreText.text = Score.ToString();
+            scoreText.text = (Math.Round(Score)).ToString();
     }
 
     public void LoseLife()
@@ -88,21 +99,26 @@ public class GameManager : MonoBehaviour
     {
         Score = 0;
         // Lives = startLives;
+        currentWindForce = startWindForce;
+        timer = 0;
     }
 
     [ContextMenu("Game Over")]
     private void GameOver()
     {
-        // TODO have a timer for animations and raterise 
-        Debug.Log("Game Over");
-        Reset();
-        PlayerController.Instance.Respawn();
-        PatternSpawner.Instance.Reset();
-        // SceneManager.LoadScene(0);
+        if (GameActive)
+        {
+            // TODO have a timer for animations and raterise 
+            Debug.Log("Game Over");
+            // Reset();
+            PatternSpawner.Instance.Reset();
+            // SceneManager.LoadScene(0);
 
-        cardController.Rasterise();
+            cardController.Rasterise();
+            playerController.Death();
 
-        GameActive = false;
+            GameActive = false;
+        }
     }
 
     private void Start()
@@ -132,6 +148,7 @@ public class GameManager : MonoBehaviour
         cardController.Top.ShowUI(UIController.UIType.Game);
         // TODO: Start the game (reset score, start obstacle spawning?)
         GameActive = true;
+        PlayerController.Instance.Respawn();
 
         Reset();
     }
@@ -144,5 +161,28 @@ public class GameManager : MonoBehaviour
     private void RestartGameAfterLoad(Scene scene, LoadSceneMode mode)
     {
         cardController.Spawn();
+    }
+
+    private void Update()
+    {
+        if (GameActive)
+        {
+            if (currentWindForce < maxWindForce)
+            {
+                currentWindForce += windForceAcceleration * Time.deltaTime;
+            }
+            
+            if (playerController.IsReleased)
+                timer += Time.deltaTime * disconnectedScorePerSecond;
+            else 
+                timer += Time.deltaTime * connectedScorePerSecond;
+
+            Score = timer;
+        }
+    }
+
+    public void OnRelease()
+    {
+        timer += addScoreOnDisconnect;
     }
 }
