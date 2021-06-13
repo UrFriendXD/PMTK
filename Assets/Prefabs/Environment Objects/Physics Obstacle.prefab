@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8499056312960652922}
   - component: {fileID: 8499056312960652870}
   - component: {fileID: 7075237695214218161}
+  - component: {fileID: 5314220479035108466}
   m_Layer: 8
   m_Name: Physics Obstacle
   m_TagString: PayloadObstacle
@@ -92,19 +93,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8499056312960652920}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 6cb3d3236036c854cab3a80fb3d8c994, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!58 &7075237695214218161
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -121,3 +122,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5314220479035108466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8499056312960652920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc97ac44a6184ae49e5fa771c6226a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
