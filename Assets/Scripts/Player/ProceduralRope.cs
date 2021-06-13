@@ -77,8 +77,8 @@ namespace Player
                 var joint = jointObject.AddComponent<DistanceJoint2D>();
                 lastJoint.connectedBody = jointBody;
                 joint.breakForce = 1200;
-                joint.anchor = -offset;
-                joint.connectedAnchor = offset;
+                joint.anchor = offset;
+                //joint.connectedAnchor = offset;
                 SetSegmentJointDistance(lastJoint);
                 
                 lastJoint = joint;
