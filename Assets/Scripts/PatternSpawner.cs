@@ -9,12 +9,19 @@ public class PatternSpawner : MonoBehaviour
 {
     [SerializeField] private float TimeBetweenSpawnMax;
     [SerializeField] private float TimeBetweenSpawnMin;
+    [SerializeField] private float timeBetweenSpawnIncreaseInterval = 1f;
+    [SerializeField] private float timeBetweenSpawnIncrease;
+    [SerializeField] private float timeBetweenSpawnIncreaseMax = Mathf.Infinity;
     [SerializeField] private float startDelay = 3f;
     [SerializeField] private List<GameObject> patternPrefabs;
 
     private GameManager gameManager;
     private float timer = 0;
     private float startTimer;
+    private float currentIncreaseInterval;
+    private float startTimeBetweenSpawnMax;
+    private float startTimeBetweenSpawnMin;
+    private float totalIncrease;
     
     public HashSet<GameObject> SpawnedPatternObjects { get; } = new HashSet<GameObject>();
     
@@ -25,12 +32,18 @@ public class PatternSpawner : MonoBehaviour
         Instance = this;
         gameManager = FindObjectOfType<GameManager>();
         timer = TimeBetweenSpawnMax;
+
+        startTimeBetweenSpawnMin = TimeBetweenSpawnMin;
+        startTimeBetweenSpawnMax = TimeBetweenSpawnMax;
     }
 
     public void Reset()
     {
         startTimer = 0;
         timer = 0;
+        TimeBetweenSpawnMin = startTimeBetweenSpawnMin;
+        TimeBetweenSpawnMax = startTimeBetweenSpawnMax;
+        totalIncrease = 0;
 
         foreach (GameObject go in SpawnedPatternObjects)
         {
@@ -51,7 +64,16 @@ public class PatternSpawner : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
+        if (totalIncrease < timeBetweenSpawnIncreaseMax && currentIncreaseInterval >= timeBetweenSpawnIncreaseInterval)
+        {
+            TimeBetweenSpawnMin += timeBetweenSpawnIncrease;
+            TimeBetweenSpawnMax += timeBetweenSpawnIncrease;
+            totalIncrease += timeBetweenSpawnIncrease;
+            currentIncreaseInterval = 0;
+        }
+
         startTimer += Time.deltaTime;
+        currentIncreaseInterval += Time.deltaTime;
     }
 
     private void SpawnRandomPattern()
