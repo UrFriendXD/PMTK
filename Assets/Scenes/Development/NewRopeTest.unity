@@ -624,16 +624,36 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: inverseSpawnRate
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternPrefabs.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 883623204493920154, guid: 1ab9f9a142107b7a09ce09a1be7b5c30, type: 3}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 883623204493920154, guid: b8a88b64a6bde3345b8a7615cde3dd29, type: 3}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 883623204493920154, guid: 2357c63b5db13cd4495fa6a2b6814db4, type: 3}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 883623204493920154, guid: e0dad14086771204788c789ff70a9d2c, type: 3}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 883623204493920154, guid: a45cdb8f172213a4592a5806b239386d, type: 3}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.size
       value: 3

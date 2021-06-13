@@ -719,6 +719,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349152, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349152, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.21568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 905590968177349152, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.39215687
+      objectReference: {fileID: 0}
     - target: {fileID: 905590968177349155, guid: f9ff9ecc897c47341b16508378a85b59, type: 3}
       propertyPath: maxCards
       value: 3

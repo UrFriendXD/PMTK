@@ -43,9 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c857ebb09da9e644b9dec46b9cb95803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inverseSpawnRate: 4
+  inverseSpawnRate: 3
   patternPrefabs:
-  - {fileID: 200236559987686028, guid: 21d91853f6c47cb4e973073073a35433, type: 3}
-  - {fileID: 2111568193095582868, guid: 3f4c348f3627dd94a9624508d441680b, type: 3}
-  - {fileID: 1944688244048209116, guid: 877a39e3ee3150c4098ab01d68c39069, type: 3}
-  - {fileID: 8073403341518342072, guid: b1587cff012c0e64eb4790a8189d3481, type: 3}
+  - {fileID: 883623204493920154, guid: 1ab9f9a142107b7a09ce09a1be7b5c30, type: 3}
+  - {fileID: 883623204493920154, guid: b8a88b64a6bde3345b8a7615cde3dd29, type: 3}
+  - {fileID: 883623204493920154, guid: 2357c63b5db13cd4495fa6a2b6814db4, type: 3}
+  - {fileID: 883623204493920154, guid: e0dad14086771204788c789ff70a9d2c, type: 3}
+  - {fileID: 883623204493920154, guid: a45cdb8f172213a4592a5806b239386d, type: 3}
