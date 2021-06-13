@@ -235,9 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &289034717 stripped
+--- !u!4 &216099604 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1785340490656600316, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 432554955, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
   m_PrefabInstance: {fileID: 5499690150588367070}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &490773594 stripped
@@ -1302,7 +1302,7 @@ PrefabInstance:
     - target: {fileID: 412646736919149248, guid: a7f0e2fd3046f1b43a36d290da329c35, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 289034717}
+      objectReference: {fileID: 216099604}
     - target: {fileID: 412646736919149248, guid: a7f0e2fd3046f1b43a36d290da329c35, type: 3}
       propertyPath: playerController
       value: 
