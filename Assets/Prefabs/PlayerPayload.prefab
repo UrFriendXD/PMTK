@@ -243,6 +243,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 6349706836784411023}
     m_Modifications:
     - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: jointMass
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: jointCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3179866922741725690, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: hinges.Array.size
       value: 6
       objectReference: {fileID: 0}

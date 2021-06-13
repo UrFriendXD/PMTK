@@ -28,7 +28,7 @@ namespace Player
 
         private void Start()
         {
-            distancePerSegment = (jointCount - 2) / playerController.PayloadDistance;
+            distancePerSegment = playerController.PayloadDistance / (jointCount + 1);
             GenerateJoints();
         }
 
@@ -123,7 +123,8 @@ namespace Player
             if (joint is DistanceJoint2D distanceJoint)
             {
                 distanceJoint.autoConfigureDistance = false;
-                distanceJoint.distance = distancePerSegment;
+                distanceJoint.distance = distancePerSegment / 2f;
+                distanceJoint.maxDistanceOnly = true;
             }
         }
     }
