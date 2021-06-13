@@ -391,6 +391,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6534096642302927387, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 987ae473692c2a8458a542bc7fdc3a6a, type: 2}
+    - target: {fileID: 6534096642302927387, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_Parameters.numCornerVertices
       value: 20
       objectReference: {fileID: 0}
