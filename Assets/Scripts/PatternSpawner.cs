@@ -59,7 +59,7 @@ public class PatternSpawner : MonoBehaviour
         GameObject randomPattern = patternPrefabs[Random.Range(0, patternPrefabs.Count)];
 
         Vector2 position = new Vector2(
-            gameManager.ViewportRightSide,
+            gameManager.ViewportRightSide * 3,
             0
         );
 

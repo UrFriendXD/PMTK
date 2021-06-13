@@ -271,13 +271,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 150748056}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
+      propertyPath: maxWindForce
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: cardController
       value: 
       objectReference: {fileID: 886595281}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
+      propertyPath: startWindForce
+      value: 13.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1795444580}
+    - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
+      propertyPath: windForceAcceleration
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869994, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -765,6 +777,18 @@ PrefabInstance:
       propertyPath: patternPrefabs.Array.data[5]
       value: 
       objectReference: {fileID: 883623204493920154, guid: dc99f75f8508a63fb9e3f545bbfb0bf1, type: 3}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: patternPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.size
       value: 3
@@ -1383,7 +1407,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 946538258239716658, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: isImmaterialWhenThrown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1192388925611630369, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: m_Name
