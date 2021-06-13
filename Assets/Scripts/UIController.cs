@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -16,6 +17,15 @@ public class UIController : MonoBehaviour
     {
         Menu,
         Game
+    }
+
+    private void Update()
+    {
+        if (!playButton.enabled || !playButton.gameObject.activeInHierarchy)
+            return;
+        
+        if (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
+            OnButtonPressed();
     }
 
     public void Hide()
