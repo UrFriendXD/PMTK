@@ -75,6 +75,8 @@ namespace Player
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            if (!GameManager.Instance.GameActive) return;
+            
             moveValue = context.ReadValue<float>();
 
             if (context.started)
@@ -92,6 +94,8 @@ namespace Player
 
         public void OnTether(InputAction.CallbackContext context)
         {
+            if (!GameManager.Instance.GameActive) return;
+            
             if (context.started && CanRelease)
             {
                 // When payload is still attached and we're about to release
