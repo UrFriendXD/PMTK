@@ -366,7 +366,15 @@ PrefabInstance:
       value: 76e8a872-b0ce-447b-ab36-9a07a9929ba0
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: 76e8a872-b0ce-447b-ab36-9a07a9929ba0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Player/Restart Game[/Keyboard/r]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
       value: Player/Restart Game[/Keyboard/r]
       objectReference: {fileID: 0}
     - target: {fileID: 5499690150978224844, guid: 461f132d0af044ecc9bf84063a1244e7, type: 3}
