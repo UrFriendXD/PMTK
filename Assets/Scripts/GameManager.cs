@@ -52,8 +52,7 @@ public class GameManager : MonoBehaviour
         if (Instance != null)
         {
             Instance.scoreText = scoreText;
-            Instance.livesUI = livesUI;
-            Instance._postcardController = _postcardController;
+            Instance.cardController = cardController;
             Destroy(this);
             return;
         }
@@ -134,6 +133,6 @@ public class GameManager : MonoBehaviour
 
     private void RestartGameAfterLoad(Scene scene, LoadSceneMode mode)
     {
-        _postcardController.Spawn();
+        cardController.Spawn();
     }
 }
