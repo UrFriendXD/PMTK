@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeBetweenSpawnMax: 0.9
   TimeBetweenSpawnMin: 0.5
-  timeBetweenSpawnDecreaseInterval: 5
+  timeBetweenSpawnDecreaseInterval: 8
   timeBetweenSpawnDecrease: 0.05
   timeBetweenSpawnDecreaseMax: 0.35
   startDelay: 2

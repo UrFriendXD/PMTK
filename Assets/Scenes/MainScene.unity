@@ -851,6 +851,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: timeBetweenSpawnDecreaseInterval
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.size
       value: 3
       objectReference: {fileID: 0}
