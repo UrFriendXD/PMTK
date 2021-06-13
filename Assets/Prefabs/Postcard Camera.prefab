@@ -125,7 +125,7 @@ MonoBehaviour:
   cardParent: {fileID: 905590969619180160}
   maxCards: 5
   positionVariance: {x: 2, y: 0.5}
-  rotationVariance: 5
+  rotationVariance: 3
   cards: []
 --- !u!1 &905590969619180161
 GameObject:
