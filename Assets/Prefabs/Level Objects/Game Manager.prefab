@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2270056700349869994}
   - component: {fileID: 2270056700349869993}
-  - component: {fileID: 2202175196143596254}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -42,10 +41,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d56567e98c6694f816f2560dc08548, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
-  startLives: 1
-  livesUI: {fileID: 0}
-  _postcardController: {fileID: 0}
-  windForce: 20
+  cardController: {fileID: 0}
+  startWindForce: 4
+  maxWindForce: 25
+  windForceAcceleration: 0.2
+  playerController: {fileID: 0}
+  currentWindForce: 0
+  GameActive: 0

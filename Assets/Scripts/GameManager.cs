@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float startWindForce = 4f;
     [SerializeField] private float maxWindForce = 5f;
     [SerializeField] private float windForceAcceleration = 0.1f;
+    [SerializeField] private PlayerController playerController;
 
     [SerializeField] private float currentWindForce;
 
@@ -164,6 +165,10 @@ public class GameManager : MonoBehaviour
             }
 
             timer += Time.deltaTime;
+
+            // Bonus score for being disconnected
+            if (playerController.IsReleased)
+                timer += Time.deltaTime;
 
             Score = timer;
         }
