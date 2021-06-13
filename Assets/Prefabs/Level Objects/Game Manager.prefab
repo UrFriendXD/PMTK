@@ -51,9 +51,9 @@ MonoBehaviour:
   windForceAcceleration: 0.2
   playerController: {fileID: 0}
   currentWindForce: 0
-  connectedScorePerSecond: 0
-  disconnectedScorePerSecond: 1
-  addScoreOnDisconnect: 1
+  connectedScorePerSecond: 3
+  disconnectedScorePerSecond: 3
+  addScoreOnDisconnect: 0
   CameraShutter: {fileID: 8300000, guid: 16f01d0ece0763443926d6f9c8034d2e, type: 3}
   PostCard: {fileID: 8300000, guid: 7b416a5a8e005d545b2bb059d3066fda, type: 3}
   GameActive: 0

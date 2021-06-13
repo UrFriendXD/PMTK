@@ -275,10 +275,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 886595281}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
-      propertyPath: startWindForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1795444580}
