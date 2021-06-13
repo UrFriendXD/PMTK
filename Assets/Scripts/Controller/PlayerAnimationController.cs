@@ -42,8 +42,6 @@ public class PlayerAnimationController : MonoBehaviour
     public void Fling()
     {
         _animator.SetTrigger(Fling1);
-
-        Debug.Log(payload._rb.velocity.x);
     }
 
     public void Catch()
