@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class PatternSpawner : MonoBehaviour
 {
-    [SerializeField] private int TimeBetweenSpawn;
+    [SerializeField] private float TimeBetweenSpawn;
     [SerializeField] private float startDelay = 3f;
     [SerializeField] private List<GameObject> patternPrefabs;
 
