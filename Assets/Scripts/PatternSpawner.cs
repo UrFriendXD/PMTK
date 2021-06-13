@@ -9,9 +9,9 @@ public class PatternSpawner : MonoBehaviour
 {
     [SerializeField] private float TimeBetweenSpawnMax;
     [SerializeField] private float TimeBetweenSpawnMin;
-    [SerializeField] private float timeBetweenSpawnIncreaseInterval = 1f;
-    [SerializeField] private float timeBetweenSpawnIncrease;
-    [SerializeField] private float timeBetweenSpawnIncreaseMax = Mathf.Infinity;
+    [SerializeField] private float timeBetweenSpawnDecreaseInterval = 3f;
+    [SerializeField] private float timeBetweenSpawnDecrease;
+    [SerializeField] private float timeBetweenSpawnDecreaseMax = 0;
     [SerializeField] private float startDelay = 3f;
     [SerializeField] private List<GameObject> patternPrefabs;
 
@@ -44,7 +44,10 @@ public class PatternSpawner : MonoBehaviour
         TimeBetweenSpawnMin = startTimeBetweenSpawnMin;
         TimeBetweenSpawnMax = startTimeBetweenSpawnMax;
         totalIncrease = 0;
+    }
 
+    public void ClearObjects()
+    {
         foreach (GameObject go in SpawnedPatternObjects)
         {
             Destroy(go);
@@ -64,16 +67,19 @@ public class PatternSpawner : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if (totalIncrease < timeBetweenSpawnIncreaseMax && currentIncreaseInterval >= timeBetweenSpawnIncreaseInterval)
+        if (totalIncrease < timeBetweenSpawnDecreaseMax && currentIncreaseInterval >= timeBetweenSpawnDecreaseInterval)
         {
-            TimeBetweenSpawnMin += timeBetweenSpawnIncrease;
-            TimeBetweenSpawnMax += timeBetweenSpawnIncrease;
-            totalIncrease += timeBetweenSpawnIncrease;
+            TimeBetweenSpawnMin -= timeBetweenSpawnDecrease;
+            TimeBetweenSpawnMax -= timeBetweenSpawnDecrease;
+            totalIncrease += timeBetweenSpawnDecrease;
             currentIncreaseInterval = 0;
         }
-
-        startTimer += Time.deltaTime;
-        currentIncreaseInterval += Time.deltaTime;
+        
+        if (GameManager.Instance.GameActive)
+        {
+            startTimer += Time.deltaTime;
+            currentIncreaseInterval += Time.deltaTime;
+        }
     }
 
     private void SpawnRandomPattern()

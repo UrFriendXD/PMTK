@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeBetweenSpawnMax: 0.9
   TimeBetweenSpawnMin: 0.5
-  timeBetweenSpawnIncreaseInterval: 3
-  timeBetweenSpawnIncrease: 0.1
-  timeBetweenSpawnIncreaseMax: 5
+  timeBetweenSpawnDecreaseInterval: 5
+  timeBetweenSpawnDecrease: 0.05
+  timeBetweenSpawnDecreaseMax: 0.35
   startDelay: 2
   patternPrefabs:
   - {fileID: 883623204493920154, guid: 1ab9f9a142107b7a09ce09a1be7b5c30, type: 3}
