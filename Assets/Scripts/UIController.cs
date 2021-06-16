@@ -13,6 +13,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Color selectionColor;
 
+    [SerializeField] private bool pulse;
+    [SerializeField] private float pulseSpeed;
+    [SerializeField] private float pulseMin;
+
+    private TextMeshProUGUI _buttonText;
+
     public enum UIType
     {
         Menu,
@@ -21,11 +27,18 @@ public class UIController : MonoBehaviour
 
     public bool Enabled => playButton.enabled && playButton.gameObject.activeInHierarchy;
 
+    private void Awake()
+    {
+        _buttonText = playButton.GetComponentInChildren<TextMeshProUGUI>();
+    }
+
     private void Update()
     {
         if (!Enabled)
             return;
-        
+
+        _buttonText.alpha = Mathf.Lerp(pulseMin, 1.0f, (Mathf.Sin(Time.time * pulseSpeed) + 1.0f) / 2.0f);
+
         if (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
             OnButtonPressed();
     }
@@ -80,14 +93,12 @@ public class UIController : MonoBehaviour
             return;
         
         TextMeshProUGUI text = playButton.GetComponentInChildren<TextMeshProUGUI>();
-        text.fontStyle = FontStyles.Underline;
-        text.color = selectionColor;
+        text.textStyle = text.styleSheet.GetStyle("Hover");
     }
 
     public void OnButtonExit()
     {
         TextMeshProUGUI text = playButton.GetComponentInChildren<TextMeshProUGUI>();
-        text.fontStyle = FontStyles.Normal;
-        text.color = Color.white;
+        text.textStyle = text.styleSheet.GetStyle("Normal");
     }
 }

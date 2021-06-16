@@ -82,6 +82,11 @@ namespace Player
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            MovePlayer(context);
+        }
+
+        public void MovePlayer(InputAction.CallbackContext context)
+        {
             if (!GameManager.Instance.GameActive) return;
             
             moveValue = context.ReadValue<float>();

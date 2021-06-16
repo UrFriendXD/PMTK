@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Touch Controls",
+                    "type": "Value",
+                    "id": "a38c84ab-7fa9-4eb6-83e4-3f90f72eec6d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -140,6 +148,39 @@
                     "action": "Restart Game",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "8831b07e-5d13-48f7-a6ad-d5609b9b3060",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Controls",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "34a10d9b-fc9f-4538-8545-dd5c80674d70",
+                    "path": "<Touchscreen>/primaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Controls",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ea88cd44-fd77-4256-aca8-87be02eb98f4",
+                    "path": "<Touchscreen>/primaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Controls",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
