@@ -20,7 +20,7 @@ public class PayloadAudioController : MonoBehaviour
     {
         if (timer < 0)
         {
-            var clip = Collide[(Random.Range(0, Collide.Count - 1))];
+            var clip = Collide[(Random.Range(0, Collide.Count))];
             _audioSource.PlayOneShot(clip);
             timer = delay;
         }

@@ -33,8 +33,8 @@ public class PlayerAudioController : MonoBehaviour
 
     public void OnThrow()
     {
-        var clip = Grunt[(Random.Range(0, Grunt.Count - 1))];
-        var clip2 = CatThrow[(Random.Range(0, CatThrow.Count - 1))];
+        var clip = Grunt[(Random.Range(0, Grunt.Count))];
+        var clip2 = CatThrow[(Random.Range(0, CatThrow.Count))];
         _audioSource.PlayOneShot(clip);
         _audioSource.PlayOneShot(clip2);
         _audioSource.PlayOneShot(WitchThrow);
@@ -49,7 +49,7 @@ public class PlayerAudioController : MonoBehaviour
 
     public void OnRespawn()
     {
-        var clip = WitchLaughter[(Random.Range(0, WitchLaughter.Count - 1))];
+        var clip = WitchLaughter[(Random.Range(0, WitchLaughter.Count))];
         _audioSource.PlayOneShot(clip);
     }
 }

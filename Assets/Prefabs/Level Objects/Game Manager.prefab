@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   cardController: {fileID: 0}
-  startWindForce: 10
-  maxWindForce: 60
-  windForceAcceleration: 0.2
+  startWindForce: 13.07
+  maxWindForce: 23
+  windForceAcceleration: 0.7
   playerController: {fileID: 0}
   currentWindForce: 0
   connectedScorePerSecond: 3

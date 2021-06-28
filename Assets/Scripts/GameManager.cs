@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
 
             playerController.Death();
             StartCoroutine(Rasterise());
-            _audioSource.PlayOneShot(CameraShutter);
             GameActive = false;
         }
     }
@@ -131,6 +130,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator Rasterise()
     {
         yield return new WaitForSeconds(0.5f);
+        _audioSource.PlayOneShot(CameraShutter);
         cardController.Rasterise();
         PatternSpawner.Instance.ClearObjects();
     }

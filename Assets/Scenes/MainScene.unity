@@ -381,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 150748056}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: maxWindForce
-      value: 23
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: cardController
@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 886595281}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: startWindForce
-      value: 13.07
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: playerController
@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 1795444580}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: windForceAcceleration
-      value: 0.7
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869994, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: m_RootOrder
@@ -851,7 +851,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1556052609384113218, guid: 3a0f393ebc2ce294292881d3f76cd3e8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1954f35c4a59f6249b8619148a52804f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.85
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1470,6 +1470,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1784403317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 386186226, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+  m_PrefabInstance: {fileID: 5499690150588367070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc928fa11b0b454a841f00717ce174a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1795444580 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1785340491591879726, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
@@ -1712,6 +1723,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1476733596}
     m_Modifications:
+    - target: {fileID: 548831464, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: payload
+      value: 
+      objectReference: {fileID: 1784403317}
+    - target: {fileID: 548831465, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: Collide.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 548831465, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
+      propertyPath: Collide.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 946538258239716658, guid: 015c7d8ad3fe34696b32ffb6ba64c6c9, type: 3}
       propertyPath: isImmaterialWhenThrown
       value: 0
