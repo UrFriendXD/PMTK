@@ -381,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 150748056}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: maxWindForce
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: cardController
@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 886595281}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: startWindForce
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: playerController
@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 1795444580}
     - target: {fileID: 2270056700349869993, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: windForceAcceleration
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2270056700349869994, guid: cc171d09ea432a64ab232076adbf85fe, type: 3}
       propertyPath: m_RootOrder
@@ -1067,6 +1067,18 @@ PrefabInstance:
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: TimeBetweenSpawn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: TimeBetweenSpawnMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: TimeBetweenSpawnMin
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
+      propertyPath: timeBetweenSpawnDecreaseInterval
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6495707360237483532, guid: 446bb48ba85e94044bd6541486f79779, type: 3}
       propertyPath: patternSceneBuildIndexes.Array.size
