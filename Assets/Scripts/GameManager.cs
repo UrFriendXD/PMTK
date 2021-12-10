@@ -36,7 +36,9 @@ public class GameManager : MonoBehaviour
     public float WindForce => currentWindForce;
 
     public bool GameActive;
-    
+
+    public bool MLTraining;
+
     private float timer = 0;
 
     public float Score
@@ -92,10 +94,19 @@ public class GameManager : MonoBehaviour
 
     public void LoseLife()
     {
-        Debug.Log("Lose Life");
+       // Debug.Log("Lose Life");
         //Lives--;
 
-        GameOver();
+        if (!MLTraining)
+        {
+            GameOver();
+            return;
+        }
+        PatternSpawner.Instance.Reset();
+        PatternSpawner.Instance.ClearObjects();
+        PlayerController.Instance.Respawn();
+        Reset();
+        //OnBeginPlay();
         /*if (Lives == 0)
         {
             GameOver();
@@ -137,9 +148,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        cardController.Spawn();
-        cardController.Top.ShowUI(UIController.UIType.Menu);
-        cardController.Top.posterise = false;
+        
+        if (MLTraining)
+        {
+            OnBeginPlay();
+        }
+        else
+        {
+            cardController.Spawn();
+            cardController.Top.ShowUI(UIController.UIType.Menu);
+            cardController.Top.posterise = false;
+        }
     }
 
     public void OnBeginPlay()

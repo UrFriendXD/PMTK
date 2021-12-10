@@ -122,14 +122,17 @@ namespace Player
         
         public IEnumerator DoDelayedClearJoints(float delay, Vector2 impulseForce)
         {
-            EndJoint.attachedRigidbody.mass = endJointReleaseMass;
-            EndJoint.attachedRigidbody.AddForce(impulseForce, ForceMode2D.Impulse);
-            EndJoint.connectedBody = null;
-            shownLineJoints.Remove(EndJoint);
-            
-            Destroy(EndJoint);
-            yield return new WaitForSeconds(delay);
-            ClearJoints();
+            if (EndJoint)
+            {
+                EndJoint.attachedRigidbody.mass = endJointReleaseMass;
+                EndJoint.attachedRigidbody.AddForce(impulseForce, ForceMode2D.Impulse);
+                EndJoint.connectedBody = null;
+                shownLineJoints.Remove(EndJoint);
+                
+                Destroy(EndJoint);
+                yield return new WaitForSeconds(delay);
+                ClearJoints();
+            }
         }
 
         public void ClearJoints()

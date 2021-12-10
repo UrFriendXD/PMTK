@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2888289433959517912}
   - component: {fileID: 2888289433959517913}
   - component: {fileID: 2888289433959517918}
+  - component: {fileID: 1986139842220957604}
   m_Layer: 0
   m_Name: Pattern Destroyer
   m_TagString: Untagged
@@ -92,3 +93,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1986139842220957604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888289433959517914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5db566a0d5fe6c44aa77afaf5fa3c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

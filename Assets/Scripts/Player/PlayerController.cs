@@ -60,6 +60,8 @@ namespace Player
 
         private PlayerAudioController _playerAudioController;
 
+        public bool MLTraining;
+
         private void Awake()
         {
             if (Instance != null)
@@ -77,6 +79,7 @@ namespace Player
             proceduralRope = GetComponent<ProceduralRope>();
             mainJoint = GetComponent<DistanceJoint2D>();
             startPosition = transform.position;
+            MLTraining = gameManager.MLTraining;
             //Debug.Log(_playerAnimationController);
         }
 
@@ -109,6 +112,30 @@ namespace Player
                 if (!IsReleased)
                 {
                     Debug.Log("Released with cooldown " + currentReleaseCooldown);
+                    UnJoinPayload();
+                    currentReleaseCooldown = releaseCooldown;
+                    payloadBody.velocity *= releaseVelocityMultiplier;
+                    payloadBody.AddForce(Vector2.right * releaseImpulseForce, ForceMode2D.Impulse);
+                    _playerAudioController.OnThrow();
+                    gameManager.OnRelease();
+                }
+                // When about to catch the payload
+                else if (PayloadDistance < catchDistance)
+                {
+                    _playerAudioController.OnCatch();
+                    JoinPayload();
+                }
+            }
+        }
+
+        public void OnTetherML()
+        {
+            if (CanRelease && MLTraining)
+            {
+                // When payload is still attached and we're about to release
+                if (!IsReleased)
+                {
+                    //Debug.Log("Released with cooldown " + currentReleaseCooldown);
                     UnJoinPayload();
                     currentReleaseCooldown = releaseCooldown;
                     payloadBody.velocity *= releaseVelocityMultiplier;
